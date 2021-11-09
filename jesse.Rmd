@@ -1,0 +1,20 @@
+---
+title: "Jesse Flowers"
+image: "jesse.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/jesse-flowers-3a5478197/"
+  - label: Twitter
+    url: ""
+  - label: GitHub
+    url: "https://github.com/Jesse-Flowers"
+  - label: ORCID iD
+    url: ""
+site: distill::distill_website
+output:
+  postcards::jolla
+---
+ 
+I am a classically trained data scientist living in the San Francisco Bay Area. 
+Currently I work on the Oculus team at Facebook. I love talking about baseball, 
+true crime podcasts, and causal inference.

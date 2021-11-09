@@ -1,0 +1,16 @@
+name: "."
+title: "mfeo"
+description: |
+  mfeo
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Jesse"              # add
+      href: Jesse.html           # add
+    - text: "Blog"              # add
+      href: Blog.html           # add
+output: distill::distill_article
