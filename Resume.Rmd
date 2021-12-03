@@ -1,7 +1,5 @@
 ---
-title: "Curriculum Vitae"
-description: |
-  Latin for "course of life"
+title: "Resume"
 output: distill::distill_article
 ---
 
@@ -25,148 +23,46 @@ Jesseflow99@gmail.com
 
 ## EMPLOYMENT
 
-### Miles Tax Service , Starkville, MS
-
-Tax Accountant: Febuary 2020 -- May 2021.
-
-### Walmart, Starkville, Ms
-
-Automotive Assocaite: 2018-2021.
-
-
+### *Miles Tax Service*,  
+Starkville, MS — Accountant 
+February 2020- May 2021
+ 
+### *Walmart*, 
+ Starkville, MS — Automotive Associate 
+May 2018- March 2020 
+ 
+### *Car Wash USA*,  
+Olive Branch, MS — Supervisor/Key Holder 
+April 2015 -August 2018 
+ 
+ 
 ## EDUCATION
 
-### Mississippi State University, Starkville, MS
+### *Mississippi State University, Starkville, MS*,
+Master of Taxation (Minor in Data Analytics)  
+Graduation Date July 2022
 
-Masters of Taxation
- -Minor in Data Analytics
+### *Mississippi State University, Starkville, MS*, 
+Bachelors of Accountancy  
+Graduation Date April 2021
 
-### Louisiana Tech University, Ruston, LA
+## Skills and Abilities 
+ 
+•	Advised clients on business and personal tax decisions. 
 
-Master of Arts in Teaching - Mathematics Emphasis -- Completed 2011
+•	Resolved tax issues for corporate and personal tax clients. 
 
-Bachelor of Science -- Mathematics Major, Finance Minor -- Completed 2008
+•	Obtained extensive experience in multiple computer programs such as QuickBooks,        Proseries, and Excel. 
 
-## RESEARCH
+•	Executed large collaborative projects.
 
-### Interests
+•	Written and oral communication skills. 
 
-#### Business Analytics
+•	Excellent collaborative skills. 
+ 
+ 
+## Honors and Organizations 
+ 
+•	Accounting and Finance Student Society of Mississippi State University 
 
--   Machine learning algorithms
-
--   Outlier analysis
-
--   Clustering
-
--   Measuring model fit
-
-#### Accounting
-
--   Earnings/Returns Relation
-
--   Methodology
-
-### Dissertation
-
-"A Data Analytics Approach to Classification in an Accounting Setting: Predicting Changes in Earnings"
-
-Committee: Vernon Richardson (Chair), Cory Cassell, David Douglas, and James Myers
-
-### Publications
-
-Hunt, J. O., Rosser, D. M., & Rowe, S. P. (2020). Using machine learning to predict auditor switches: How the likelihood of switching affects audit quality among non-switching clients. Journal of Accounting and Public Policy, 106785.
-
-Hunt, J., Myers, J., & Myers, L. (2021). Improving earnings predictions with machine learning. Forthcoming Accounting Horizons.
-
-Hunt, E., Hunt, J., Richardson, V., & David, R. (2021). Auditor Response to Estimated Misstatement Risk: A Machine Learning Approach. Forthcoming Accounting Horizons.
-
-### Circulated Work
-
-Cunningham, L., Hunt, J., and Short, J. Appointing audit committee directors.
-
-Dearden, S., Hunt, E., Hunt, J., and Richardson, V. Combining expert expectations with machine learning: An analysis of bank going concern opinions before and after the financial crisis.
-
-Hunt, E., Hunt, J., and Rosser, D. The effect of lockdowns during the pandemic on audit outcomes.
-
-### Works in Progress
-
-Hunt, E., Hunt, J., and Kang, Dae. A Simple Way to Measure Binary Model Fit.
-
--   New technique derived and tested on real data
-
-## CONFERENCES ATTENDED
-
-AAA FARS Section Midyear -- 2014, 2015, 2017
-
-Arkansas Accounting Research Conference -- 2014, 2015, 2016, 2017, 2018
-
-OSU Accounting Research Conference -- 2015, 2018
-
-AAA Audit Section Midyear -- 2017, 2018, 2019
-
-AAA AIS Section Midyear - 2019
-
-AAA Southwest Regional Meeting -- 2017
-
-AAA Accounting Information Systems Section Bootcamp - 2017
-
-## TEACHING INTERESTS
-
-Business Analytics
-
-Accounting Information Systems
-
-Cost Accounting
-
-Financial Accounting
-
-## TEACHING EXPERIENCE
-
-### Mississippi State University
-
-Accounting Information Systems I -- 2018, 2019, 2020
-
-Principles of Financial Accounting -- 2019
-
-### University of Arkansas, Fayetteville, AR
-
-Intermediate Accounting II -- 2014, 2015
-
-Accounting Principles I -- 2015
-
-Cost Accounting -- 2016, 2018
-
-## PROFESSIONAL CERTIFICATIONS
-
-Certified Public Accountant, Arkansas and Mississippi
-
-## SERVICE
-
-### Ad Hoc Reviewer
-
-International Journal of Accounting Information Systems -- 2018, 2019, 2020, 2021
-
-Journal of Information systems - 2020
-
-Accounting Horizons -- 2018, 2019
-
-### Committees
-
-Accounting Horizons Data Analytics Conference 2019 Scientific Committee Member
-
-Richard C. Adkerson School of Accountancy Curriculum Committee
-
-### Editorial Board
-
-Asked to serve on International Journal of Accounting Information Systems 2022
-
-## Honors
-
-Mississippi State University College of Business undergraduate critical thinking project design 2019
-
-Accounting Information Systems (including topics about technology in accounting)" track for the Best Reviewer's Award HARC 2022
-
-## PROGRAMMING EXPERIENCE
-
-R, SAS, SAS Enterprise Miner, SPSS Miner, Microsoft SQL server, Stata, Python
+•	President’s list at Mississippi State 
