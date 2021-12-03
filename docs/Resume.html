@@ -87,26 +87,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>mfeo: Blog</title>
+  <title>mfeo: Curriculum Vitae</title>
 
+  <meta property="description" itemprop="description" content="Latin for &quot;course of life&quot;"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="mfeo: Blog"/>
+  <meta property="og:title" content="mfeo: Curriculum Vitae"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Latin for &quot;course of life&quot;"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="mfeo"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="mfeo: Blog"/>
+  <meta property="twitter:title" content="mfeo: Curriculum Vitae"/>
+  <meta property="twitter:description" content="Latin for &quot;course of life&quot;"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":["Blog"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["Curriculum Vitae"]},{"type":"character","attributes":{},"value":["Latin for \"course of life\"\n"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2365,12 +2368,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Blog","authors":[]}
+{"title":"Curriculum Vitae","description":"Latin for \"course of life\"","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2392,158 +2395,102 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Blog">Blog</h1>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Blog</h1>
+<h1>Curriculum Vitae</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Latin for “course of life”</p></p>
 </div>
 
 
 <div class="d-article">
+<center>
+<h1 id="jesse-a.-flowers">Jesse A. Flowers</h1>
+<p>Adkerson School of Accountancy</p>
+<p>Mississippi State University</p>
+<p><a href="mailto:Jesseflow99@gmail.com" class="email">Jesseflow99@gmail.com</a></p>
+</center>
+<hr />
+<h2 id="employment">EMPLOYMENT</h2>
+<h3 id="miles-tax-service-starkville-ms">Miles Tax Service , Starkville, MS</h3>
+<p>Tax Accountant: Febuary 2020 – May 2021.</p>
+<h3 id="walmart-starkville-ms">Walmart, Starkville, Ms</h3>
+<p>Automotive Assocaite: 2018-2021.</p>
+<h2 id="education">EDUCATION</h2>
+<h3 id="mississippi-state-university-starkville-ms">Mississippi State University, Starkville, MS</h3>
+<p>Masters of Taxation -Minor in Data Analytics</p>
+<h3 id="louisiana-tech-university-ruston-la">Louisiana Tech University, Ruston, LA</h3>
+<p>Master of Arts in Teaching - Mathematics Emphasis – Completed 2011</p>
+<p>Bachelor of Science – Mathematics Major, Finance Minor – Completed 2008</p>
+<h2 id="research">RESEARCH</h2>
+<h3 id="interests">Interests</h3>
+<h4 id="business-analytics">Business Analytics</h4>
+<ul>
+<li><p>Machine learning algorithms</p></li>
+<li><p>Outlier analysis</p></li>
+<li><p>Clustering</p></li>
+<li><p>Measuring model fit</p></li>
+</ul>
+<h4 id="accounting">Accounting</h4>
+<ul>
+<li><p>Earnings/Returns Relation</p></li>
+<li><p>Methodology</p></li>
+</ul>
+<h3 id="dissertation">Dissertation</h3>
+<p>“A Data Analytics Approach to Classification in an Accounting Setting: Predicting Changes in Earnings”</p>
+<p>Committee: Vernon Richardson (Chair), Cory Cassell, David Douglas, and James Myers</p>
+<h3 id="publications">Publications</h3>
+<p>Hunt, J. O., Rosser, D. M., &amp; Rowe, S. P. (2020). Using machine learning to predict auditor switches: How the likelihood of switching affects audit quality among non-switching clients. Journal of Accounting and Public Policy, 106785.</p>
+<p>Hunt, J., Myers, J., &amp; Myers, L. (2021). Improving earnings predictions with machine learning. Forthcoming Accounting Horizons.</p>
+<p>Hunt, E., Hunt, J., Richardson, V., &amp; David, R. (2021). Auditor Response to Estimated Misstatement Risk: A Machine Learning Approach. Forthcoming Accounting Horizons.</p>
+<h3 id="circulated-work">Circulated Work</h3>
+<p>Cunningham, L., Hunt, J., and Short, J. Appointing audit committee directors.</p>
+<p>Dearden, S., Hunt, E., Hunt, J., and Richardson, V. Combining expert expectations with machine learning: An analysis of bank going concern opinions before and after the financial crisis.</p>
+<p>Hunt, E., Hunt, J., and Rosser, D. The effect of lockdowns during the pandemic on audit outcomes.</p>
+<h3 id="works-in-progress">Works in Progress</h3>
+<p>Hunt, E., Hunt, J., and Kang, Dae. A Simple Way to Measure Binary Model Fit.</p>
+<ul>
+<li>New technique derived and tested on real data</li>
+</ul>
+<h2 id="conferences-attended">CONFERENCES ATTENDED</h2>
+<p>AAA FARS Section Midyear – 2014, 2015, 2017</p>
+<p>Arkansas Accounting Research Conference – 2014, 2015, 2016, 2017, 2018</p>
+<p>OSU Accounting Research Conference – 2015, 2018</p>
+<p>AAA Audit Section Midyear – 2017, 2018, 2019</p>
+<p>AAA AIS Section Midyear - 2019</p>
+<p>AAA Southwest Regional Meeting – 2017</p>
+<p>AAA Accounting Information Systems Section Bootcamp - 2017</p>
+<h2 id="teaching-interests">TEACHING INTERESTS</h2>
+<p>Business Analytics</p>
+<p>Accounting Information Systems</p>
+<p>Cost Accounting</p>
+<p>Financial Accounting</p>
+<h2 id="teaching-experience">TEACHING EXPERIENCE</h2>
+<h3 id="mississippi-state-university">Mississippi State University</h3>
+<p>Accounting Information Systems I – 2018, 2019, 2020</p>
+<p>Principles of Financial Accounting – 2019</p>
+<h3 id="university-of-arkansas-fayetteville-ar">University of Arkansas, Fayetteville, AR</h3>
+<p>Intermediate Accounting II – 2014, 2015</p>
+<p>Accounting Principles I – 2015</p>
+<p>Cost Accounting – 2016, 2018</p>
+<h2 id="professional-certifications">PROFESSIONAL CERTIFICATIONS</h2>
+<p>Certified Public Accountant, Arkansas and Mississippi</p>
+<h2 id="service">SERVICE</h2>
+<h3 id="ad-hoc-reviewer">Ad Hoc Reviewer</h3>
+<p>International Journal of Accounting Information Systems – 2018, 2019, 2020, 2021</p>
+<p>Journal of Information systems - 2020</p>
+<p>Accounting Horizons – 2018, 2019</p>
+<h3 id="committees">Committees</h3>
+<p>Accounting Horizons Data Analytics Conference 2019 Scientific Committee Member</p>
+<p>Richard C. Adkerson School of Accountancy Curriculum Committee</p>
+<h3 id="editorial-board">Editorial Board</h3>
+<p>Asked to serve on International Journal of Accounting Information Systems 2022</p>
+<h2 id="honors">Honors</h2>
+<p>Mississippi State University College of Business undergraduate critical thinking project design 2019</p>
+<p>Accounting Information Systems (including topics about technology in accounting)" track for the Best Reviewer’s Award HARC 2022</p>
+<h2 id="programming-experience">PROGRAMMING EXPERIENCE</h2>
+<p>R, SAS, SAS Enterprise Miner, SPSS Miner, Microsoft SQL server, Stata, Python</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
