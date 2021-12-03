@@ -6,14 +6,22 @@
       "description": "Some additional details about the website",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T12:09:29-06:00"
+      "last_modified": "2021-12-03T16:17:30-06:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T12:09:30-06:00"
+      "last_modified": "2021-12-03T16:17:30-06:00"
+    },
+    {
+      "path": "FP.html",
+      "title": "Curriculum Vitae",
+      "description": "Latin for \"course of life\"\n",
+      "author": [],
+      "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-12-03T16:17:31-06:00"
     },
     {
       "path": "index.html",
@@ -21,14 +29,22 @@
       "description": "Welcome to the website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T12:09:30-06:00"
+      "last_modified": "2021-12-03T16:17:31-06:00"
     },
     {
       "path": "jesse.html",
       "title": "Jesse Flowers",
       "author": [],
-      "contents": "\r\n\r\n          \r\n          \r\n          mfeo\r\n          \r\n          \r\n          Home\r\n          Resume\r\n          Jesse\r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            Jesse Flowers\r\n          \r\n          \r\n            \r\n              I am a classically trained data scientist living in the San Francisco Bay Area. Currently I work on the Oculus team at Facebook. I love talking about baseball, true crime podcasts, and causal inference.\r\n            \r\n            \r\n              I am a classically trained data scientist living in the San Francisco Bay Area. Currently I work on the Oculus team at Facebook. I love talking about baseball, true crime podcasts, and causal inference.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Twitter\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      ORCID iD\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Twitter\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    ORCID iD\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
-      "last_modified": "2021-12-03T12:09:30-06:00"
+      "contents": "\r\n\r\n          \r\n          \r\n          mfeo\r\n          \r\n          \r\n          Home\r\n          Resume\r\n          Jesse\r\n          \r\n          \r\n          Projects\r\n           \r\n          ▾\r\n          \r\n          \r\n          RSquared\r\n          Machine Learning\r\n          Final Project\r\n          \r\n          \r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            Jesse Flowers\r\n          \r\n          \r\n            \r\n              I am a classically trained data scientist living in the San Francisco Bay Area. Currently I work on the Oculus team at Facebook. I love talking about baseball, true crime podcasts, and causal inference.\r\n            \r\n            \r\n              I am a classically trained data scientist living in the San Francisco Bay Area. Currently I work on the Oculus team at Facebook. I love talking about baseball, true crime podcasts, and causal inference.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Twitter\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      ORCID iD\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Twitter\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    ORCID iD\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
+      "last_modified": "2021-12-03T16:17:32-06:00"
+    },
+    {
+      "path": "ML.html",
+      "title": "Curriculum Vitae",
+      "description": "Latin for \"course of life\"\n",
+      "author": [],
+      "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-12-03T16:17:32-06:00"
     },
     {
       "path": "Resume.html",
@@ -36,7 +52,15 @@
       "description": "Latin for \"course of life\"\n",
       "author": [],
       "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\nEMPLOYMENT\r\nMiles Tax Service , Starkville, MS\r\nTax Accountant: Febuary 2020 – May 2021.\r\nWalmart, Starkville, Ms\r\nAutomotive Assocaite: 2018-2021.\r\nEDUCATION\r\nMississippi State University, Starkville, MS\r\nMasters of Taxation -Minor in Data Analytics\r\nLouisiana Tech University, Ruston, LA\r\nMaster of Arts in Teaching - Mathematics Emphasis – Completed 2011\r\nBachelor of Science – Mathematics Major, Finance Minor – Completed 2008\r\nRESEARCH\r\nInterests\r\nBusiness Analytics\r\nMachine learning algorithms\r\nOutlier analysis\r\nClustering\r\nMeasuring model fit\r\nAccounting\r\nEarnings/Returns Relation\r\nMethodology\r\nDissertation\r\n“A Data Analytics Approach to Classification in an Accounting Setting: Predicting Changes in Earnings”\r\nCommittee: Vernon Richardson (Chair), Cory Cassell, David Douglas, and James Myers\r\nPublications\r\nHunt, J. O., Rosser, D. M., & Rowe, S. P. (2020). Using machine learning to predict auditor switches: How the likelihood of switching affects audit quality among non-switching clients. Journal of Accounting and Public Policy, 106785.\r\nHunt, J., Myers, J., & Myers, L. (2021). Improving earnings predictions with machine learning. Forthcoming Accounting Horizons.\r\nHunt, E., Hunt, J., Richardson, V., & David, R. (2021). Auditor Response to Estimated Misstatement Risk: A Machine Learning Approach. Forthcoming Accounting Horizons.\r\nCirculated Work\r\nCunningham, L., Hunt, J., and Short, J. Appointing audit committee directors.\r\nDearden, S., Hunt, E., Hunt, J., and Richardson, V. Combining expert expectations with machine learning: An analysis of bank going concern opinions before and after the financial crisis.\r\nHunt, E., Hunt, J., and Rosser, D. The effect of lockdowns during the pandemic on audit outcomes.\r\nWorks in Progress\r\nHunt, E., Hunt, J., and Kang, Dae. A Simple Way to Measure Binary Model Fit.\r\nNew technique derived and tested on real data\r\nCONFERENCES ATTENDED\r\nAAA FARS Section Midyear – 2014, 2015, 2017\r\nArkansas Accounting Research Conference – 2014, 2015, 2016, 2017, 2018\r\nOSU Accounting Research Conference – 2015, 2018\r\nAAA Audit Section Midyear – 2017, 2018, 2019\r\nAAA AIS Section Midyear - 2019\r\nAAA Southwest Regional Meeting – 2017\r\nAAA Accounting Information Systems Section Bootcamp - 2017\r\nTEACHING INTERESTS\r\nBusiness Analytics\r\nAccounting Information Systems\r\nCost Accounting\r\nFinancial Accounting\r\nTEACHING EXPERIENCE\r\nMississippi State University\r\nAccounting Information Systems I – 2018, 2019, 2020\r\nPrinciples of Financial Accounting – 2019\r\nUniversity of Arkansas, Fayetteville, AR\r\nIntermediate Accounting II – 2014, 2015\r\nAccounting Principles I – 2015\r\nCost Accounting – 2016, 2018\r\nPROFESSIONAL CERTIFICATIONS\r\nCertified Public Accountant, Arkansas and Mississippi\r\nSERVICE\r\nAd Hoc Reviewer\r\nInternational Journal of Accounting Information Systems – 2018, 2019, 2020, 2021\r\nJournal of Information systems - 2020\r\nAccounting Horizons – 2018, 2019\r\nCommittees\r\nAccounting Horizons Data Analytics Conference 2019 Scientific Committee Member\r\nRichard C. Adkerson School of Accountancy Curriculum Committee\r\nEditorial Board\r\nAsked to serve on International Journal of Accounting Information Systems 2022\r\nHonors\r\nMississippi State University College of Business undergraduate critical thinking project design 2019\r\nAccounting Information Systems (including topics about technology in accounting)\" track for the Best Reviewer’s Award HARC 2022\r\nPROGRAMMING EXPERIENCE\r\nR, SAS, SAS Enterprise Miner, SPSS Miner, Microsoft SQL server, Stata, Python\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T12:09:31-06:00"
+      "last_modified": "2021-12-03T16:17:33-06:00"
+    },
+    {
+      "path": "RSquared.html",
+      "title": "Curriculum Vitae",
+      "description": "Latin for \"course of life\"\n",
+      "author": [],
+      "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-12-03T16:17:33-06:00"
     }
   ],
   "collections": ["posts/posts.json"]

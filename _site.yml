@@ -11,5 +11,13 @@ navbar:
       href: Resume.html
     - text: "Jesse"              # add
       href: jesse.html           # add
+    - text: "Projects"
+      menu:
+        - text: "RSquared"
+          href: RSquared.html
+        - text: "Machine Learning"
+          href: ML.html
+        - text: "Final Project"
+          href: FP.html
 output: distill::distill_article
 theme: "theme.css"

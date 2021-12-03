@@ -1,0 +1,24 @@
+---
+title: "Curriculum Vitae"
+description: |
+  Latin for "course of life"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<center>
+
+# Jesse A. Flowers
+
+Adkerson School of Accountancy
+
+Mississippi State University
+
+Jesseflow99@gmail.com
+
+</center>
+
+------------------------------------------------------------------------
