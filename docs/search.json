@@ -6,14 +6,14 @@
       "description": "Some additional details about the website",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T17:55:43-06:00"
+      "last_modified": "2021-12-03T21:19:04-06:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T17:55:44-06:00"
+      "last_modified": "2021-12-03T21:19:05-06:00"
     },
     {
       "path": "FP.html",
@@ -21,7 +21,7 @@
       "description": "Latin for \"course of life\"\n",
       "author": [],
       "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T17:55:45-06:00"
+      "last_modified": "2021-12-03T21:19:06-06:00"
     },
     {
       "path": "index.html",
@@ -29,14 +29,14 @@
       "description": "Welcome to the website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T17:55:45-06:00"
+      "last_modified": "2021-12-03T21:19:07-06:00"
     },
     {
       "path": "jesse.html",
       "title": "Jesse Flowers",
       "author": [],
       "contents": "\r\n\r\n          \r\n          \r\n          mfeo\r\n          \r\n          \r\n          Home\r\n          Resume\r\n          Jesse\r\n          \r\n          \r\n          Projects\r\n           \r\n          ▾\r\n          \r\n          \r\n          RSquared\r\n          Machine Learning\r\n          Final Project\r\n          \r\n          \r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            Jesse Flowers\r\n          \r\n          \r\n            \r\n              I am a student at Mississippi State University, where I am currently working towards my Masters of Taxation with a minor in Data Analytics.\r\n            \r\n            \r\n              I am a student at Mississippi State University, where I am currently working towards my Masters of Taxation with a minor in Data Analytics.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
-      "last_modified": "2021-12-03T17:55:45-06:00"
+      "last_modified": "2021-12-03T21:19:07-06:00"
     },
     {
       "path": "ML.html",
@@ -44,22 +44,22 @@
       "description": "Latin for \"course of life\"\n",
       "author": [],
       "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T17:55:46-06:00"
+      "last_modified": "2021-12-03T21:19:09-06:00"
     },
     {
       "path": "Resume.html",
       "title": "Resume",
       "author": [],
       "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\nEMPLOYMENT\r\nMiles Tax Service,\r\nStarkville, MS — Accountant February 2020- May 2021\r\nWalmart,\r\nStarkville, MS — Automotive Associate May 2018- March 2020\r\nCar Wash USA,\r\nOlive Branch, MS — Supervisor/Key Holder April 2015 -August 2018\r\nEDUCATION\r\nMississippi State University, Starkville, MS,\r\nMaster of Taxation (Minor in Data Analytics)\r\nGraduation Date July 2022\r\nMississippi State University, Starkville, MS,\r\nBachelors of Accountancy\r\nGraduation Date April 2021\r\nSkills and Abilities\r\n• Advised clients on business and personal tax decisions.\r\n• Resolved tax issues for corporate and personal tax clients.\r\n• Obtained extensive experience in multiple computer programs such as QuickBooks, Proseries, and Excel.\r\n• Executed large collaborative projects.\r\n• Written and oral communication skills.\r\n• Excellent collaborative skills.\r\nHonors and Organizations\r\n• Accounting and Finance Student Society of Mississippi State University\r\n• President’s list at Mississippi State\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T17:55:46-06:00"
+      "last_modified": "2021-12-03T21:19:10-06:00"
     },
     {
       "path": "RSquared.html",
-      "title": "Curriculum Vitae",
-      "description": "Latin for \"course of life\"\n",
+      "title": "Rsquared",
+      "description": "RSquared can be a very misleading predictor\n",
       "author": [],
-      "contents": "\r\n\r\nJesse A. Flowers\r\nAdkerson School of Accountancy\r\nMississippi State University\r\nJesseflow99@gmail.com\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-03T17:55:47-06:00"
+      "contents": "\r\nPossible Issues from R-Squared\r\nR-Squared does a poor job of measure fit. Even when a model is completely correct, it can still be a relativity low fit. Alternatively when a model is incorrect, R-Squared could be still be very close to 1.\r\nTime to blow RSquared up1 💥\r\nR-squared is a statistic that often accompanies regression output. It ranges in value from 0 to 1 and is usually interpreted as summarizing the percent of variation in the response that the regression model explains. So an R-squared of 0.65 might mean that the model explains about 65% of the variation in our dependent variable. Given this logic, we prefer our regression models have a high R-squared.\r\nIn R, we typically get R-squared by calling the summary function on a model object. Here’s a quick example using simulated data:\r\n\r\n\r\n# independent variable\r\nx <- 1:20 \r\n# for reproducibility\r\nset.seed(1) \r\n# dependent variable; function of x with random error\r\ny <- 2 + 0.5*x + rnorm(20,0,3) \r\n# simple linear regression\r\nmod <- lm(y~x)\r\n# request just the r-squared value\r\nsummary(mod)$r.squared          \r\n\r\n\r\n[1] 0.6026682\r\n\r\nOne way to express R-squared is as the sum of squared fitted-value deviations divided by the sum of squared original-value deviations:\r\n\\[\r\nR^{2} =  \\frac{\\sum (\\hat{y} – \\bar{\\hat{y}})^{2}}{\\sum (y – \\bar{y})^{2}}\r\n\\]\r\nWe can calculate it directly using our model object like so:\r\n\r\n\r\n# extract fitted (or predicted) values from model\r\nf <- mod$fitted.values\r\n# sum of squared fitted-value deviations\r\nmss <- sum((f - mean(f))^2)\r\n# sum of squared original-value deviations\r\ntss <- sum((y - mean(y))^2)\r\n# r-squared\r\nmss/tss                      \r\n\r\n\r\n[1] 0.6026682\r\n\r\nR-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct. By making\\(σ^2\\) large, we drive R-squared towards 0, even when every assumption of the simple linear regression model is correct in every particular.\r\nWhat is \\(σ^2\\)? When we perform linear regression, we assume our model almost predicts our dependent variable. The difference between “almost” and “exact” is assumed to be a draw from a Normal distribution with mean 0 and some variance we call \\(σ^2\\).\r\nThis statement is easy enough to demonstrate. The way we do it here is to create a function that (1) generates data meeting the assumptions of simple linear regression (independent observations, normally distributed errors with constant variance), (2) fits a simple linear model to the data, and (3) reports the R-squared. Notice the only parameter for sake of simplicity is sigma. We then “apply” this function to a series of increasing \\(σ\\) values and plot the results.\r\n\r\n\r\nr2.0 <- function(sig){\r\n  # our predictor\r\n  x <- seq(1,10,length.out = 100)   \r\n  # our response; a function of x plus some random noise\r\n  y <- 2 + 1.2*x + rnorm(100,0,sd = sig) \r\n  # print the R-squared value\r\n  summary(lm(y ~ x))$r.squared          \r\n}\r\nsigmas <- seq(0.5,20,length.out = 20)\r\n # apply our function to a series of sigma values\r\nrout <- sapply(sigmas, r2.0)            \r\nplot(rout ~ sigmas, type=\"b\")\r\n\r\n\r\n\r\n\r\nR-squared tanks hard with increasing sigma, even though the model is completely correct in every respect.\r\nR-squared can be arbitrarily close to 1 when the model is totally wrong.\r\nThe point being made is that R-squared does not measure goodness of fit.\r\n\r\n\r\nset.seed(1)\r\n# our predictor is data from an exponential distribution\r\nx <- rexp(50,rate=0.005)\r\n# non-linear data generation\r\ny <- (x-1)^2 * runif(50, min=0.8, max=1.2) \r\n# clearly non-linear\r\nplot(x,y)             \r\n\r\n\r\n\r\n\r\n\r\n\r\nsummary(lm(y ~ x))$r.squared\r\n\r\n\r\n[1] 0.8485146\r\n\r\nIt’s very high at about 0.85, but the model is completely wrong. Using R-squared to justify the “goodness” of our model in this instance would be a mistake. Hopefully one would plot the data first and recognize that a simple linear regression in this case would be inappropriate.\r\nPossible Solutions\r\nMean Square Error (MSE) is much more effective when used to measure prediciton error\r\n\r\nhttps://data.library.virginia.edu/is-r-squared-useless/↩︎\r\n",
+      "last_modified": "2021-12-03T21:19:12-06:00"
     }
   ],
   "collections": ["posts/posts.json"]

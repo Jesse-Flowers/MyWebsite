@@ -87,29 +87,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>mfeo: Curriculum Vitae</title>
+  <title>mfeo: Rsquared</title>
 
-  <meta property="description" itemprop="description" content="Latin for &quot;course of life&quot;"/>
+  <meta property="description" itemprop="description" content="RSquared can be a very misleading predictor"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="mfeo: Curriculum Vitae"/>
+  <meta property="og:title" content="mfeo: Rsquared"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Latin for &quot;course of life&quot;"/>
+  <meta property="og:description" content="RSquared can be a very misleading predictor"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="mfeo"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="mfeo: Curriculum Vitae"/>
-  <meta property="twitter:description" content="Latin for &quot;course of life&quot;"/>
+  <meta property="twitter:title" content="mfeo: Rsquared"/>
+  <meta property="twitter:description" content="RSquared can be a very misleading predictor"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["Curriculum Vitae"]},{"type":"character","attributes":{},"value":["Latin for \"course of life\"\n"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["Rsquared"]},{"type":"character","attributes":{},"value":["RSquared can be a very misleading predictor\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2373,7 +2373,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Curriculum Vitae","description":"Latin for \"course of life\"","authors":[]}
+{"title":"Rsquared","description":"RSquared can be a very misleading predictor","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2409,22 +2409,108 @@ Projects
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Curriculum Vitae</h1>
+<h1>Rsquared</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Latin for “course of life”</p></p>
+<p><p>RSquared can be a very misleading predictor</p></p>
 </div>
 
 
 <div class="d-article">
-<center>
-<h1 id="jesse-a.-flowers">Jesse A. Flowers</h1>
-<p>Adkerson School of Accountancy</p>
-<p>Mississippi State University</p>
-<p><a href="mailto:Jesseflow99@gmail.com" class="email">Jesseflow99@gmail.com</a></p>
-</center>
+<h1 id="possible-issues-from-r-squared">Possible Issues from R-Squared</h1>
+<p>R-Squared does a poor job of measure fit. Even when a model is completely correct, it can still be a relativity low fit. Alternatively when a model is incorrect, R-Squared could be still be very close to 1.</p>
+<h1 id="time-to-blow-rsquared-up4">Time to blow RSquared up<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 💥</h1>
+<p><a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">R-squared</a> is a statistic that often accompanies regression output. It ranges in value from 0 to 1 and is usually interpreted as summarizing the percent of variation in the response that the regression model explains. So an R-squared of 0.65 might mean that the model explains about 65% of the variation in our dependent variable. Given this logic, we prefer our regression models have a high R-squared.</p>
+<p>In R, we typically get R-squared by calling the summary function on a model object. Here’s a quick example using simulated data:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># independent variable</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>20</span> 
+<span class='co'># for reproducibility</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> 
+<span class='co'># dependent variable; function of x with random error</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>2</span> <span class='op'>+</span> <span class='fl'>0.5</span><span class='op'>*</span><span class='va'>x</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>20</span>,<span class='fl'>0</span>,<span class='fl'>3</span><span class='op'>)</span> 
+<span class='co'># simple linear regression</span>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>x</span><span class='op'>)</span>
+<span class='co'># request just the r-squared value</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span><span class='op'>$</span><span class='va'>r.squared</span>          
+</code></pre>
+</div>
+<pre><code>[1] 0.6026682</code></pre>
+</div>
+<p>One way to express R-squared is as the sum of squared fitted-value deviations divided by the sum of squared original-value deviations:</p>
+<p><span class="math display">\[
+R^{2} =  \frac{\sum (\hat{y} – \bar{\hat{y}})^{2}}{\sum (y – \bar{y})^{2}}
+\]</span></p>
+<p>We can calculate it directly using our model object like so:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># extract fitted (or predicted) values from model</span>
+<span class='va'>f</span> <span class='op'>&lt;-</span> <span class='va'>mod</span><span class='op'>$</span><span class='va'>fitted.values</span>
+<span class='co'># sum of squared fitted-value deviations</span>
+<span class='va'>mss</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>f</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='co'># sum of squared original-value deviations</span>
+<span class='va'>tss</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>y</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='co'># r-squared</span>
+<span class='va'>mss</span><span class='op'>/</span><span class='va'>tss</span>                      
+</code></pre>
+</div>
+<pre><code>[1] 0.6026682</code></pre>
+</div>
+<h1 id="r-squared-does-not-measure-goodness-of-fit.-it-can-be-arbitrarily-low-when-the-model-is-completely-correct.-by-makingσ2-large-we-drive-r-squared-towards-0-even-when-every-assumption-of-the-simple-linear-regression-model-is-correct-in-every-particular."><em>R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.</em> By making<span class="math inline">\(σ^2\)</span> large, we drive R-squared towards 0, even when every assumption of the simple linear regression model is correct in every particular.</h1>
+<p>What is <span class="math inline">\(σ^2\)</span>? When we perform linear regression, we assume our model almost predicts our dependent variable. The difference between “almost” and “exact” is assumed to be a draw from a Normal distribution with mean 0 and some variance we call <span class="math inline">\(σ^2\)</span>.</p>
+<p>This statement is easy enough to demonstrate. The way we do it here is to create a function that (1) generates data meeting the assumptions of simple linear regression (independent observations, normally distributed errors with constant variance), (2) fits a simple linear model to the data, and (3) reports the R-squared. Notice the only parameter for sake of simplicity is <code>sigma</code>. We then “apply” this function to a series of increasing <span class="math inline">\(σ\)</span> values and plot the results.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>r2.0</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>sig</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='co'># our predictor</span>
+  <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span>,length.out <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>   
+  <span class='co'># our response; a function of x plus some random noise</span>
+  <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>2</span> <span class='op'>+</span> <span class='fl'>1.2</span><span class='op'>*</span><span class='va'>x</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span>,<span class='fl'>0</span>,sd <span class='op'>=</span> <span class='va'>sig</span><span class='op'>)</span> 
+  <span class='co'># print the R-squared value</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>y</span> <span class='op'>~</span> <span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>r.squared</span>          
+<span class='op'>}</span>
+<span class='va'>sigmas</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.5</span>,<span class='fl'>20</span>,length.out <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>
+ <span class='co'># apply our function to a series of sigma values</span>
+<span class='va'>rout</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>sigmas</span>, <span class='va'>r2.0</span><span class='op'>)</span>            
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>rout</span> <span class='op'>~</span> <span class='va'>sigmas</span>, type<span class='op'>=</span><span class='st'>"b"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="RSquared_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<p>R-squared tanks hard with increasing sigma, even though the model is <em>completely correct</em> in every respect.</p>
+<h1 id="r-squared-can-be-arbitrarily-close-to-1-when-the-model-is-totally-wrong."><em>R-squared can be arbitrarily close to 1 when the model is totally wrong.</em></h1>
+<p>The point being made is that R-squared does not measure goodness of fit.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='co'># our predictor is data from an exponential distribution</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Exponential.html'>rexp</a></span><span class='op'>(</span><span class='fl'>50</span>,rate<span class='op'>=</span><span class='fl'>0.005</span><span class='op'>)</span>
+<span class='co'># non-linear data generation</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>x</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>50</span>, min<span class='op'>=</span><span class='fl'>0.8</span>, max<span class='op'>=</span><span class='fl'>1.2</span><span class='op'>)</span> 
+<span class='co'># clearly non-linear</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span>             
+</code></pre>
+</div>
+<p><img src="RSquared_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>y</span> <span class='op'>~</span> <span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>r.squared</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.8485146</code></pre>
+</div>
+<p>It’s very high at about 0.85, but the model is completely wrong. Using R-squared to justify the “goodness” of our model in this instance would be a mistake. Hopefully one would plot the data first and recognize that a simple linear regression in this case would be inappropriate.</p>
+<h1 id="possible-solutions">Possible Solutions</h1>
+<p>Mean Square Error (MSE) is much more effective when used to measure prediciton error</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<section class="footnotes" role="doc-endnotes">
 <hr />
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://data.library.virginia.edu/is-r-squared-useless/" class="uri">https://data.library.virginia.edu/is-r-squared-useless/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2432,6 +2518,15 @@ Projects
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
