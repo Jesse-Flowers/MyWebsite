@@ -1,7 +1,5 @@
 ---
-title: "Curriculum Vitae"
-description: |
-  Latin for "course of life"
+title: "K Nearest Neighbors (KNN)"
 output: distill::distill_article
 ---
 
@@ -22,3 +20,62 @@ Jesseflow99@gmail.com
 </center>
 
 ------------------------------------------------------------------------
+# (KNN) Using Iris Data Set
+
+## Split The Data 60/40 
+```{r,echo=TRUE}
+library(caret)
+trainIndex <- createDataPartition(iris$Species, p = .6, list = FALSE, times = 1)
+ 
+```
+
+## Grab The Data
+```{r,echo=TRUE}
+#grab the data
+irisTrain <- iris[ trainIndex,]
+irisTest  <- iris[-trainIndex,]
+```
+
+
+## Perform PreProcessing on Data
+```{r,echo=TRUE}
+preProcValues <- preProcess(irisTrain, method = c("center", "scale"))
+
+trainTransformed <- predict(preProcValues, irisTrain)
+
+preProcValues <- preProcess(irisTest, method = c("center", "scale"))
+
+testTransformed <- predict(preProcValues, irisTest)
+psych::describe(testTransformed)
+```
+
+## Fit KNN 
+```{r,echo=TRUE}
+knn_fit<-train(Species~.,
+               data=trainTransformed,
+               method="knn",
+               tuneGrid=data.frame(k=5))
+
+knn_fit
+
+
+```
+
+
+## Use the test set to make a prediction
+```{r,echo=TRUE}
+
+knn_pred<-predict(knn_fit,testTransformed)
+head(knn_pred)
+
+```
+
+## Run ConfusionMatrix 
+
+```{r,echo=TRUE}
+confusionMatrix(knn_pred,testTransformed$Species)
+
+```
+
+
+
