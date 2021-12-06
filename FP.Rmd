@@ -1,7 +1,7 @@
 ---
-title: "Curriculum Vitae"
+title: "Random Forest"
 description: |
-  Latin for "course of life"
+ Predicting Bankrupcty using Random Forest"
 output: distill::distill_article
 ---
 
@@ -22,3 +22,71 @@ Jesseflow99@gmail.com
 </center>
 
 ------------------------------------------------------------------------
+
+```{r}
+library(tidyverse)
+
+library(DBI)
+ bankdata <- read.csv("C:/Users/Jesse/Desktop/JFlowers R/MyWebsite/data/bankdata.csv")
+```
+
+
+```{r,echo=TRUE}
+library(caret)
+trainIndex <- createDataPartition(bankdata$Bankrupt., p = .6, list = FALSE, times = 1)
+ 
+```
+
+
+## Grab The Data
+```{r,echo=TRUE}
+#grab the data
+BankTrain <- bankdata[ trainIndex,]
+BankTest  <- bankdata[-trainIndex,]
+```
+
+
+
+## Perform PreProcessing on Data
+```{r,echo=TRUE,results='hide'}
+preProcValues <- preProcess(BankTrain, method = c("center", "scale"))
+
+trainTransformed <- predict(preProcValues, BankTrain)
+
+preProcValues <- preProcess(BankTest, method = c("center", "scale"))
+
+testTransformed <- predict(preProcValues, BankTest)
+psych::describe(testTransformed)
+
+
+```
+
+## Fit Random Forest 
+```{r,echo=TRUE}
+set.seed(1)
+
+BankRF<- train(
+  form = factor(Bankrupt.) ~ .,
+  data = BankTrain,
+  #here we add classProbs because we want probs
+  trControl = trainControl(method = "cv", number = 10,
+                           classProbs =  TRUE),
+  method = "rf",
+  tuneLength = 3)#why 3?
+
+BankRF
+```
+
+
+## Use the test set to make a prediction
+```{r,echo=TRUE}
+Bank_pred<-predict(BankRF,testTransformed)
+head(BankRF)
+
+```
+
+
+
+
+
+

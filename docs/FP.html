@@ -2424,7 +2424,887 @@ Projects
 <p><a href="mailto:Jesseflow99@gmail.com" class="email">Jesseflow99@gmail.com</a></p>
 </center>
 <hr />
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/topepo/caret/'>caret</a></span><span class='op'>)</span>
+<span class='va'>trainIndex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/createDataPartition.html'>createDataPartition</a></span><span class='op'>(</span><span class='va'>bankdata</span><span class='op'>$</span><span class='va'>Bankrupt.</span>, p <span class='op'>=</span> <span class='fl'>.6</span>, list <span class='op'>=</span> <span class='cn'>FALSE</span>, times <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="grab-the-data">Grab The Data</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#grab the data</span>
+<span class='va'>BankTrain</span> <span class='op'>&lt;-</span> <span class='va'>bankdata</span><span class='op'>[</span> <span class='va'>trainIndex</span>,<span class='op'>]</span>
+<span class='va'>BankTest</span>  <span class='op'>&lt;-</span> <span class='va'>bankdata</span><span class='op'>[</span><span class='op'>-</span><span class='va'>trainIndex</span>,<span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<h2 id="perform-preprocessing-on-data">Perform PreProcessing on Data</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>preProcValues</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/preProcess.html'>preProcess</a></span><span class='op'>(</span><span class='va'>BankTrain</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"center"</span>, <span class='st'>"scale"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>trainTransformed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>preProcValues</span>, <span class='va'>BankTrain</span><span class='op'>)</span>
+
+<span class='va'>preProcValues</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/preProcess.html'>preProcess</a></span><span class='op'>(</span><span class='va'>BankTest</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"center"</span>, <span class='st'>"scale"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>testTransformed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>preProcValues</span>, <span class='va'>BankTest</span><span class='op'>)</span>
+<span class='fu'>psych</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/describe.html'>describe</a></span><span class='op'>(</span><span class='va'>testTransformed</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>                                                        vars    n
+Bankrupt.*                                                 1 2727
+ROA.C..before.interest.and.depreciation.before.interest    2 2727
+ROA.A..before.interest.and...after.tax                     3 2727
+ROA.B..before.interest.and.depreciation.after.tax          4 2727
+Operating.Gross.Margin                                     5 2727
+Realized.Sales.Gross.Margin                                6 2727
+Operating.Profit.Rate                                      7 2727
+Pre.tax.net.Interest.Rate                                  8 2727
+After.tax.net.Interest.Rate                                9 2727
+Non.industry.income.and.expenditure.revenue               10 2727
+Continuous.interest.rate..after.tax.                      11 2727
+Operating.Expense.Rate                                    12 2727
+Research.and.development.expense.rate                     13 2727
+Cash.flow.rate                                            14 2727
+Interest.bearing.debt.interest.rate                       15 2727
+Tax.rate..A.                                              16 2727
+Net.Value.Per.Share..B.                                   17 2727
+Net.Value.Per.Share..A.                                   18 2727
+Net.Value.Per.Share..C.                                   19 2727
+Persistent.EPS.in.the.Last.Four.Seasons                   20 2727
+Cash.Flow.Per.Share                                       21 2727
+Revenue.Per.Share..Yuan.Â..                               22 2727
+Operating.Profit.Per.Share..Yuan.Â..                      23 2727
+Per.Share.Net.profit.before.tax..Yuan.Â..                 24 2727
+Realized.Sales.Gross.Profit.Growth.Rate                   25 2727
+Operating.Profit.Growth.Rate                              26 2727
+After.tax.Net.Profit.Growth.Rate                          27 2727
+Regular.Net.Profit.Growth.Rate                            28 2727
+Continuous.Net.Profit.Growth.Rate                         29 2727
+Total.Asset.Growth.Rate                                   30 2727
+Net.Value.Growth.Rate                                     31 2727
+Total.Asset.Return.Growth.Rate.Ratio                      32 2727
+Cash.Reinvestment..                                       33 2727
+Current.Ratio                                             34 2727
+Quick.Ratio                                               35 2727
+Interest.Expense.Ratio                                    36 2727
+Total.debt.Total.net.worth                                37 2727
+Debt.ratio..                                              38 2727
+Net.worth.Assets                                          39 2727
+Long.term.fund.suitability.ratio..A.                      40 2727
+Borrowing.dependency                                      41 2727
+Contingent.liabilities.Net.worth                          42 2727
+Operating.profit.Paid.in.capital                          43 2727
+Net.profit.before.tax.Paid.in.capital                     44 2727
+Inventory.and.accounts.receivable.Net.value               45 2727
+Total.Asset.Turnover                                      46 2727
+Accounts.Receivable.Turnover                              47 2727
+Average.Collection.Days                                   48 2727
+Inventory.Turnover.Rate..times.                           49 2727
+Fixed.Assets.Turnover.Frequency                           50 2727
+Net.Worth.Turnover.Rate..times.                           51 2727
+Revenue.per.person                                        52 2727
+Operating.profit.per.person                               53 2727
+Allocation.rate.per.person                                54 2727
+Working.Capital.to.Total.Assets                           55 2727
+Quick.Assets.Total.Assets                                 56 2727
+Current.Assets.Total.Assets                               57 2727
+Cash.Total.Assets                                         58 2727
+Quick.Assets.Current.Liability                            59 2727
+Cash.Current.Liability                                    60 2727
+Current.Liability.to.Assets                               61 2727
+Operating.Funds.to.Liability                              62 2727
+Inventory.Working.Capital                                 63 2727
+Inventory.Current.Liability                               64 2727
+Current.Liabilities.Liability                             65 2727
+Working.Capital.Equity                                    66 2727
+Current.Liabilities.Equity                                67 2727
+Long.term.Liability.to.Current.Assets                     68 2727
+Retained.Earnings.to.Total.Assets                         69 2727
+Total.income.Total.expense                                70 2727
+Total.expense.Assets                                      71 2727
+Current.Asset.Turnover.Rate                               72 2727
+Quick.Asset.Turnover.Rate                                 73 2727
+Working.capitcal.Turnover.Rate                            74 2727
+Cash.Turnover.Rate                                        75 2727
+Cash.Flow.to.Sales                                        76 2727
+Fixed.Assets.to.Assets                                    77 2727
+Current.Liability.to.Liability                            78 2727
+Current.Liability.to.Equity                               79 2727
+Equity.to.Long.term.Liability                             80 2727
+Cash.Flow.to.Total.Assets                                 81 2727
+Cash.Flow.to.Liability                                    82 2727
+CFO.to.Assets                                             83 2727
+Cash.Flow.to.Equity                                       84 2727
+Current.Liability.to.Current.Assets                       85 2727
+Liability.Assets.Flag                                     86 2727
+Net.Income.to.Total.Assets                                87 2727
+Total.assets.to.GNP.price                                 88 2727
+No.credit.Interval                                        89 2727
+Gross.Profit.to.Sales                                     90 2727
+Net.Income.to.Stockholder.s.Equity                        91 2727
+Liability.to.Equity                                       92 2727
+Degree.of.Financial.Leverage..DFL.                        93 2727
+Interest.Coverage.Ratio..Interest.expense.to.EBIT.        94 2727
+Net.Income.Flag                                           95 2727
+Equity.to.Liability                                       96 2727
+                                                        mean   sd
+Bankrupt.*                                              1.03 0.18
+ROA.C..before.interest.and.depreciation.before.interest 0.00 1.00
+ROA.A..before.interest.and...after.tax                  0.00 1.00
+ROA.B..before.interest.and.depreciation.after.tax       0.00 1.00
+Operating.Gross.Margin                                  0.00 1.00
+Realized.Sales.Gross.Margin                             0.00 1.00
+Operating.Profit.Rate                                   0.00 1.00
+Pre.tax.net.Interest.Rate                               0.00 1.00
+After.tax.net.Interest.Rate                             0.00 1.00
+Non.industry.income.and.expenditure.revenue             0.00 1.00
+Continuous.interest.rate..after.tax.                    0.00 1.00
+Operating.Expense.Rate                                  0.00 1.00
+Research.and.development.expense.rate                   0.00 1.00
+Cash.flow.rate                                          0.00 1.00
+Interest.bearing.debt.interest.rate                     0.00 1.00
+Tax.rate..A.                                            0.00 1.00
+Net.Value.Per.Share..B.                                 0.00 1.00
+Net.Value.Per.Share..A.                                 0.00 1.00
+Net.Value.Per.Share..C.                                 0.00 1.00
+Persistent.EPS.in.the.Last.Four.Seasons                 0.00 1.00
+Cash.Flow.Per.Share                                     0.00 1.00
+Revenue.Per.Share..Yuan.Â..                             0.00 1.00
+Operating.Profit.Per.Share..Yuan.Â..                    0.00 1.00
+Per.Share.Net.profit.before.tax..Yuan.Â..               0.00 1.00
+Realized.Sales.Gross.Profit.Growth.Rate                 0.00 1.00
+Operating.Profit.Growth.Rate                            0.00 1.00
+After.tax.Net.Profit.Growth.Rate                        0.00 1.00
+Regular.Net.Profit.Growth.Rate                          0.00 1.00
+Continuous.Net.Profit.Growth.Rate                       0.00 1.00
+Total.Asset.Growth.Rate                                 0.00 1.00
+Net.Value.Growth.Rate                                   0.00 1.00
+Total.Asset.Return.Growth.Rate.Ratio                    0.00 1.00
+Cash.Reinvestment..                                     0.00 1.00
+Current.Ratio                                           0.00 1.00
+Quick.Ratio                                             0.00 1.00
+Interest.Expense.Ratio                                  0.00 1.00
+Total.debt.Total.net.worth                              0.00 1.00
+Debt.ratio..                                            0.00 1.00
+Net.worth.Assets                                        0.00 1.00
+Long.term.fund.suitability.ratio..A.                    0.00 1.00
+Borrowing.dependency                                    0.00 1.00
+Contingent.liabilities.Net.worth                        0.00 1.00
+Operating.profit.Paid.in.capital                        0.00 1.00
+Net.profit.before.tax.Paid.in.capital                   0.00 1.00
+Inventory.and.accounts.receivable.Net.value             0.00 1.00
+Total.Asset.Turnover                                    0.00 1.00
+Accounts.Receivable.Turnover                            0.00 1.00
+Average.Collection.Days                                 0.00 1.00
+Inventory.Turnover.Rate..times.                         0.00 1.00
+Fixed.Assets.Turnover.Frequency                         0.00 1.00
+Net.Worth.Turnover.Rate..times.                         0.00 1.00
+Revenue.per.person                                      0.00 1.00
+Operating.profit.per.person                             0.00 1.00
+Allocation.rate.per.person                              0.00 1.00
+Working.Capital.to.Total.Assets                         0.00 1.00
+Quick.Assets.Total.Assets                               0.00 1.00
+Current.Assets.Total.Assets                             0.00 1.00
+Cash.Total.Assets                                       0.00 1.00
+Quick.Assets.Current.Liability                          0.00 1.00
+Cash.Current.Liability                                  0.00 1.00
+Current.Liability.to.Assets                             0.00 1.00
+Operating.Funds.to.Liability                            0.00 1.00
+Inventory.Working.Capital                               0.00 1.00
+Inventory.Current.Liability                             0.00 1.00
+Current.Liabilities.Liability                           0.00 1.00
+Working.Capital.Equity                                  0.00 1.00
+Current.Liabilities.Equity                              0.00 1.00
+Long.term.Liability.to.Current.Assets                   0.00 1.00
+Retained.Earnings.to.Total.Assets                       0.00 1.00
+Total.income.Total.expense                              0.00 1.00
+Total.expense.Assets                                    0.00 1.00
+Current.Asset.Turnover.Rate                             0.00 1.00
+Quick.Asset.Turnover.Rate                               0.00 1.00
+Working.capitcal.Turnover.Rate                          0.00 1.00
+Cash.Turnover.Rate                                      0.00 1.00
+Cash.Flow.to.Sales                                      0.00 1.00
+Fixed.Assets.to.Assets                                  0.00 1.00
+Current.Liability.to.Liability                          0.00 1.00
+Current.Liability.to.Equity                             0.00 1.00
+Equity.to.Long.term.Liability                           0.00 1.00
+Cash.Flow.to.Total.Assets                               0.00 1.00
+Cash.Flow.to.Liability                                  0.00 1.00
+CFO.to.Assets                                           0.00 1.00
+Cash.Flow.to.Equity                                     0.00 1.00
+Current.Liability.to.Current.Assets                     0.00 1.00
+Liability.Assets.Flag                                   0.00 1.00
+Net.Income.to.Total.Assets                              0.00 1.00
+Total.assets.to.GNP.price                               0.00 1.00
+No.credit.Interval                                      0.00 1.00
+Gross.Profit.to.Sales                                   0.00 1.00
+Net.Income.to.Stockholder.s.Equity                      0.00 1.00
+Liability.to.Equity                                     0.00 1.00
+Degree.of.Financial.Leverage..DFL.                      0.00 1.00
+Interest.Coverage.Ratio..Interest.expense.to.EBIT.      0.00 1.00
+Net.Income.Flag                                         0.00 0.00
+Equity.to.Liability                                     0.00 1.00
+                                                        median
+Bankrupt.*                                                1.00
+ROA.C..before.interest.and.depreciation.before.interest  -0.05
+ROA.A..before.interest.and...after.tax                    0.02
+ROA.B..before.interest.and.depreciation.after.tax        -0.03
+Operating.Gross.Margin                                   -0.09
+Realized.Sales.Gross.Margin                              -0.09
+Operating.Profit.Rate                                     0.02
+Pre.tax.net.Interest.Rate                                 0.02
+After.tax.net.Interest.Rate                               0.02
+Non.industry.income.and.expenditure.revenue              -0.02
+Continuous.interest.rate..after.tax.                      0.02
+Operating.Expense.Rate                                   -0.62
+Research.and.development.expense.rate                    -0.54
+Cash.flow.rate                                           -0.11
+Interest.bearing.debt.interest.rate                      -0.15
+Tax.rate..A.                                             -0.32
+Net.Value.Per.Share..B.                                  -0.19
+Net.Value.Per.Share..A.                                  -0.19
+Net.Value.Per.Share..C.                                  -0.19
+Persistent.EPS.in.the.Last.Four.Seasons                  -0.13
+Cash.Flow.Per.Share                                      -0.05
+Revenue.Per.Share..Yuan.Â..                              -0.02
+Operating.Profit.Per.Share..Yuan.Â..                     -0.17
+Per.Share.Net.profit.before.tax..Yuan.Â..                -0.14
+Realized.Sales.Gross.Profit.Growth.Rate                  -0.03
+Operating.Profit.Growth.Rate                             -0.02
+After.tax.Net.Profit.Growth.Rate                          0.02
+Regular.Net.Profit.Growth.Rate                            0.01
+Continuous.Net.Profit.Growth.Rate                        -0.01
+Total.Asset.Growth.Rate                                   0.31
+Net.Value.Growth.Rate                                    -0.02
+Total.Asset.Return.Growth.Rate.Ratio                     -0.07
+Cash.Reinvestment..                                       0.06
+Current.Ratio                                            -0.16
+Quick.Ratio                                              -0.04
+Interest.Expense.Ratio                                   -0.02
+Total.debt.Total.net.worth                               -0.03
+Debt.ratio..                                             -0.04
+Net.worth.Assets                                          0.04
+Long.term.fund.suitability.ratio..A.                     -0.11
+Borrowing.dependency                                     -0.12
+Contingent.liabilities.Net.worth                         -0.29
+Operating.profit.Paid.in.capital                         -0.17
+Net.profit.before.tax.Paid.in.capital                    -0.14
+Inventory.and.accounts.receivable.Net.value              -0.14
+Total.Asset.Turnover                                     -0.23
+Accounts.Receivable.Turnover                             -0.04
+Average.Collection.Days                                  -0.04
+Inventory.Turnover.Rate..times.                          -0.67
+Fixed.Assets.Turnover.Frequency                          -0.41
+Net.Worth.Turnover.Rate..times.                          -0.25
+Revenue.per.person                                       -0.30
+Operating.profit.per.person                              -0.13
+Allocation.rate.per.person                               -0.04
+Working.Capital.to.Total.Assets                          -0.07
+Quick.Assets.Total.Assets                                -0.07
+Current.Assets.Total.Assets                              -0.03
+Cash.Total.Assets                                        -0.35
+Quick.Assets.Current.Liability                           -0.17
+Cash.Current.Liability                                   -0.07
+Current.Liability.to.Assets                              -0.15
+Operating.Funds.to.Liability                             -0.14
+Inventory.Working.Capital                                -0.02
+Inventory.Current.Liability                              -0.09
+Current.Liabilities.Liability                             0.22
+Working.Capital.Equity                                    0.02
+Current.Liabilities.Equity                               -0.15
+Long.term.Liability.to.Current.Assets                    -0.08
+Retained.Earnings.to.Total.Assets                         0.11
+Total.income.Total.expense                               -0.14
+Total.expense.Assets                                     -0.21
+Current.Asset.Turnover.Rate                              -0.43
+Quick.Asset.Turnover.Rate                                -0.65
+Working.capitcal.Turnover.Rate                           -0.03
+Cash.Turnover.Rate                                       -0.50
+Cash.Flow.to.Sales                                       -0.02
+Fixed.Assets.to.Assets                                   -0.02
+Current.Liability.to.Liability                            0.22
+Current.Liability.to.Equity                              -0.15
+Equity.to.Long.term.Liability                            -0.14
+Cash.Flow.to.Total.Assets                                -0.10
+Cash.Flow.to.Liability                                   -0.07
+CFO.to.Assets                                             0.01
+Cash.Flow.to.Equity                                      -0.05
+Current.Liability.to.Current.Assets                      -0.13
+Liability.Assets.Flag                                    -0.03
+Net.Income.to.Total.Assets                                0.07
+Total.assets.to.GNP.price                                -0.05
+No.credit.Interval                                       -0.01
+Gross.Profit.to.Sales                                    -0.09
+Net.Income.to.Stockholder.s.Equity                        0.06
+Liability.to.Equity                                      -0.12
+Degree.of.Financial.Leverage..DFL.                       -0.04
+Interest.Coverage.Ratio..Interest.expense.to.EBIT.       -0.02
+Net.Income.Flag                                           0.00
+Equity.to.Liability                                      -0.26
+                                                        trimmed  mad
+Bankrupt.*                                                 1.00 0.00
+ROA.C..before.interest.and.depreciation.before.interest    0.00 0.69
+ROA.A..before.interest.and...after.tax                     0.03 0.61
+ROA.B..before.interest.and.depreciation.after.tax          0.01 0.65
+Operating.Gross.Margin                                    -0.04 0.54
+Realized.Sales.Gross.Margin                               -0.04 0.53
+Operating.Profit.Rate                                      0.02 0.00
+Pre.tax.net.Interest.Rate                                  0.02 0.01
+After.tax.net.Interest.Rate                                0.02 0.01
+Non.industry.income.and.expenditure.revenue               -0.02 0.01
+Continuous.interest.rate..after.tax.                       0.02 0.01
+Operating.Expense.Rate                                    -0.19 0.00
+Research.and.development.expense.rate                     -0.18 0.33
+Cash.flow.rate                                            -0.06 0.33
+Interest.bearing.debt.interest.rate                       -0.15 0.00
+Tax.rate..A.                                              -0.15 0.72
+Net.Value.Per.Share..B.                                   -0.13 0.57
+Net.Value.Per.Share..A.                                   -0.13 0.56
+Net.Value.Per.Share..C.                                   -0.13 0.56
+Persistent.EPS.in.the.Last.Four.Seasons                   -0.08 0.51
+Cash.Flow.Per.Share                                       -0.02 0.50
+Revenue.Per.Share..Yuan.Â..                               -0.02 0.00
+Operating.Profit.Per.Share..Yuan.Â..                      -0.10 0.47
+Per.Share.Net.profit.before.tax..Yuan.Â..                 -0.08 0.49
+Realized.Sales.Gross.Profit.Growth.Rate                   -0.03 0.00
+Operating.Profit.Growth.Rate                              -0.02 0.06
+After.tax.Net.Profit.Growth.Rate                           0.02 0.02
+Regular.Net.Profit.Growth.Rate                             0.02 0.02
+Continuous.Net.Profit.Growth.Rate                          0.00 0.04
+Total.Asset.Growth.Rate                                    0.08 0.60
+Net.Value.Growth.Rate                                     -0.02 0.00
+Total.Asset.Return.Growth.Rate.Ratio                      -0.06 0.21
+Cash.Reinvestment..                                        0.06 0.44
+Current.Ratio                                             -0.11 0.18
+Quick.Ratio                                               -0.04 0.00
+Interest.Expense.Ratio                                    -0.01 0.02
+Total.debt.Total.net.worth                                -0.03 0.00
+Debt.ratio..                                              -0.03 1.05
+Net.worth.Assets                                           0.03 1.05
+Long.term.fund.suitability.ratio..A.                      -0.09 0.03
+Borrowing.dependency                                      -0.09 0.22
+Contingent.liabilities.Net.worth                          -0.17 0.00
+Operating.profit.Paid.in.capital                          -0.11 0.46
+Net.profit.before.tax.Paid.in.capital                     -0.08 0.49
+Inventory.and.accounts.receivable.Net.value               -0.09 0.28
+Total.Asset.Turnover                                      -0.14 0.71
+Accounts.Receivable.Turnover                              -0.04 0.00
+Average.Collection.Days                                   -0.04 0.00
+Inventory.Turnover.Rate..times.                           -0.18 0.00
+Fixed.Assets.Turnover.Frequency                           -0.29 0.00
+Net.Worth.Turnover.Rate..times.                           -0.17 0.39
+Revenue.per.person                                        -0.21 0.26
+Operating.profit.per.person                               -0.10 0.21
+Allocation.rate.per.person                                -0.04 0.00
+Working.Capital.to.Total.Assets                           -0.04 1.00
+Quick.Assets.Total.Assets                                 -0.05 1.08
+Current.Assets.Total.Assets                               -0.01 1.13
+Cash.Total.Assets                                         -0.20 0.55
+Quick.Assets.Current.Liability                            -0.12 0.21
+Cash.Current.Liability                                    -0.07 0.00
+Current.Liability.to.Assets                               -0.09 0.95
+Operating.Funds.to.Liability                              -0.09 0.38
+Inventory.Working.Capital                                 -0.01 0.04
+Inventory.Current.Liability                               -0.09 0.00
+Current.Liabilities.Liability                              0.11 1.10
+Working.Capital.Equity                                     0.02 0.45
+Current.Liabilities.Equity                                -0.10 0.23
+Long.term.Liability.to.Current.Assets                     -0.08 0.00
+Retained.Earnings.to.Total.Assets                          0.10 0.37
+Total.income.Total.expense                                -0.10 0.39
+Total.expense.Assets                                      -0.14 0.48
+Current.Asset.Turnover.Rate                               -0.27 0.00
+Quick.Asset.Turnover.Rate                                 -0.17 0.00
+Working.capitcal.Turnover.Rate                            -0.03 0.01
+Cash.Turnover.Rate                                        -0.16 0.50
+Cash.Flow.to.Sales                                        -0.02 0.00
+Fixed.Assets.to.Assets                                    -0.02 0.00
+Current.Liability.to.Liability                             0.11 1.10
+Current.Liability.to.Equity                               -0.10 0.23
+Equity.to.Long.term.Liability                             -0.09 0.09
+Cash.Flow.to.Total.Assets                                 -0.04 0.46
+Cash.Flow.to.Liability                                    -0.04 0.18
+CFO.to.Assets                                              0.02 0.75
+Cash.Flow.to.Equity                                       -0.03 0.21
+Current.Liability.to.Current.Assets                       -0.11 0.65
+Liability.Assets.Flag                                     -0.03 0.00
+Net.Income.to.Total.Assets                                 0.07 0.53
+Total.assets.to.GNP.price                                 -0.05 0.00
+No.credit.Interval                                        -0.01 0.02
+Gross.Profit.to.Sales                                     -0.04 0.54
+Net.Income.to.Stockholder.s.Equity                         0.06 0.10
+Liability.to.Equity                                       -0.08 0.21
+Degree.of.Financial.Leverage..DFL.                        -0.04 0.00
+Interest.Coverage.Ratio..Interest.expense.to.EBIT.        -0.01 0.02
+Net.Income.Flag                                            0.00 0.00
+Equity.to.Liability                                       -0.17 0.33
+                                                           min   max
+Bankrupt.*                                                1.00  2.00
+ROA.C..before.interest.and.depreciation.before.interest  -7.97  7.82
+ROA.A..before.interest.and...after.tax                   -8.26  6.54
+ROA.B..before.interest.and.depreciation.after.tax        -8.63  6.96
+Operating.Gross.Margin                                  -33.16  3.14
+Realized.Sales.Gross.Margin                             -33.17  3.14
+Operating.Profit.Rate                                   -52.18  0.05
+Pre.tax.net.Interest.Rate                               -52.01  1.03
+After.tax.net.Interest.Rate                             -51.99  0.97
+Non.industry.income.and.expenditure.revenue              -5.11 51.77
+Continuous.interest.rate..after.tax.                    -52.00  0.97
+Operating.Expense.Rate                                   -0.62  2.47
+Research.and.development.expense.rate                    -0.76  3.06
+Cash.flow.rate                                          -23.42 26.70
+Interest.bearing.debt.interest.rate                      -0.15  9.00
+Tax.rate..A.                                             -0.81  6.40
+Net.Value.Per.Share..B.                                  -2.23 10.82
+Net.Value.Per.Share..A.                                  -2.22 10.80
+Net.Value.Per.Share..C.                                  -2.22 10.80
+Persistent.EPS.in.the.Last.Four.Seasons                  -3.66 22.23
+Cash.Flow.Per.Share                                     -12.14 15.85
+Revenue.Per.Share..Yuan.Â..                              -0.02 52.20
+Operating.Profit.Per.Share..Yuan.Â..                     -3.47 30.17
+Per.Share.Net.profit.before.tax..Yuan.Â..                -5.06 23.59
+Realized.Sales.Gross.Profit.Growth.Rate                  -1.20 51.81
+Operating.Profit.Growth.Rate                            -30.40 14.31
+After.tax.Net.Profit.Growth.Rate                        -36.89 22.55
+Regular.Net.Profit.Growth.Rate                          -36.66 22.40
+Continuous.Net.Profit.Growth.Rate                       -15.03 24.89
+Total.Asset.Growth.Rate                                  -1.85  1.55
+Net.Value.Growth.Rate                                    -0.02 52.20
+Total.Asset.Return.Growth.Rate.Ratio                     -5.57 41.73
+Cash.Reinvestment..                                     -18.55  5.14
+Current.Ratio                                            -0.49 32.25
+Quick.Ratio                                              -0.04 32.37
+Interest.Expense.Ratio                                  -43.15 18.25
+Total.debt.Total.net.worth                               -0.03 49.09
+Debt.ratio..                                             -2.17  4.28
+Net.worth.Assets                                         -4.28  2.17
+Long.term.fund.suitability.ratio..A.                     -0.17 35.00
+Borrowing.dependency                                    -19.31 32.18
+Contingent.liabilities.Net.worth                         -0.90 38.72
+Operating.profit.Paid.in.capital                         -3.39 30.28
+Net.profit.before.tax.Paid.in.capital                    -3.48 24.63
+Inventory.and.accounts.receivable.Net.value             -23.52 34.90
+Total.Asset.Turnover                                     -1.40  8.48
+Accounts.Receivable.Turnover                             -0.04 33.00
+Average.Collection.Days                                  -0.04 28.95
+Inventory.Turnover.Rate..times.                          -0.67  2.41
+Fixed.Assets.Turnover.Frequency                          -0.41  3.67
+Net.Worth.Turnover.Rate..times.                          -0.84 22.99
+Revenue.per.person                                       -0.62 17.09
+Operating.profit.per.person                             -13.10 17.28
+Allocation.rate.per.person                               -0.04 32.53
+Working.Capital.to.Total.Assets                          -3.55  3.05
+Quick.Assets.Total.Assets                                -1.92  2.94
+Current.Assets.Total.Assets                              -2.26  2.17
+Cash.Total.Assets                                        -0.90  5.76
+Quick.Assets.Current.Liability                           -0.49 41.33
+Cash.Current.Liability                                   -0.07 18.63
+Current.Liability.to.Assets                              -1.87  4.45
+Operating.Funds.to.Liability                             -9.42 17.95
+Inventory.Working.Capital                               -38.13 26.06
+Inventory.Current.Liability                              -0.09 17.62
+Current.Liabilities.Liability                            -3.64  1.16
+Working.Capital.Equity                                  -26.26 31.78
+Current.Liabilities.Equity                              -28.00 25.04
+Long.term.Liability.to.Current.Assets                    -0.08 18.27
+Retained.Earnings.to.Total.Assets                       -33.59  2.18
+Total.income.Total.expense                               -4.85 33.37
+Total.expense.Assets                                     -0.94 31.48
+Current.Asset.Turnover.Rate                              -0.43  3.07
+Quick.Asset.Turnover.Rate                                -0.65  2.29
+Working.capitcal.Turnover.Rate                           -0.13 51.17
+Cash.Turnover.Rate                                       -0.83  2.59
+Cash.Flow.to.Sales                                       -0.28 52.10
+Fixed.Assets.to.Assets                                   -0.02 52.20
+Current.Liability.to.Liability                           -3.64  1.16
+Current.Liability.to.Equity                             -28.00 25.04
+Equity.to.Long.term.Liability                            -4.67 35.54
+Cash.Flow.to.Total.Assets                               -13.52  6.53
+Cash.Flow.to.Liability                                  -15.34 12.57
+CFO.to.Assets                                           -10.09  6.51
+Cash.Flow.to.Equity                                     -15.09 40.69
+Current.Liability.to.Current.Assets                      -1.33 26.40
+Liability.Assets.Flag                                    -0.03 36.91
+Net.Income.to.Total.Assets                              -18.81  4.06
+Total.assets.to.GNP.price                                -0.05 22.42
+No.credit.Interval                                      -34.57 20.83
+Gross.Profit.to.Sales                                   -33.16  3.14
+Net.Income.to.Stockholder.s.Equity                      -46.78  7.58
+Liability.to.Equity                                     -19.35 32.06
+Degree.of.Financial.Leverage..DFL.                       -1.34 47.33
+Interest.Coverage.Ratio..Interest.expense.to.EBIT.      -36.71 28.20
+Net.Income.Flag                                           0.00  0.00
+Equity.to.Liability                                      -0.75 18.64
+                                                        range   skew
+Bankrupt.*                                               1.00   5.29
+ROA.C..before.interest.and.depreciation.before.interest 15.79  -0.24
+ROA.A..before.interest.and...after.tax                  14.80  -1.06
+ROA.B..before.interest.and.depreciation.after.tax       15.59  -0.76
+Operating.Gross.Margin                                  36.30 -13.97
+Realized.Sales.Gross.Margin                             36.31 -13.98
+Operating.Profit.Rate                                   52.23 -52.10
+Pre.tax.net.Interest.Rate                               53.04 -51.60
+After.tax.net.Interest.Rate                             52.96 -51.54
+Non.industry.income.and.expenditure.revenue             56.88  50.83
+Continuous.interest.rate..after.tax.                    52.97 -51.57
+Operating.Expense.Rate                                   3.09   1.24
+Research.and.development.expense.rate                    3.82   1.24
+Cash.flow.rate                                          50.12   3.99
+Interest.bearing.debt.interest.rate                      9.16   6.93
+Tax.rate..A.                                             7.20   1.97
+Net.Value.Per.Share..B.                                 13.05   3.15
+Net.Value.Per.Share..A.                                 13.03   3.13
+Net.Value.Per.Share..C.                                 13.02   3.13
+Persistent.EPS.in.the.Last.Four.Seasons                 25.89   6.04
+Cash.Flow.Per.Share                                     27.99   0.68
+Revenue.Per.Share..Yuan.Â..                             52.22  52.16
+Operating.Profit.Per.Share..Yuan.Â..                    33.64  11.45
+Per.Share.Net.profit.before.tax..Yuan.Â..               28.66   7.11
+Realized.Sales.Gross.Profit.Growth.Rate                 53.01  51.02
+Operating.Profit.Growth.Rate                            44.71 -10.17
+After.tax.Net.Profit.Growth.Rate                        59.44 -14.05
+Regular.Net.Profit.Growth.Rate                          59.06 -13.71
+Continuous.Net.Profit.Growth.Rate                       39.92  10.56
+Total.Asset.Growth.Rate                                  3.40  -0.87
+Net.Value.Growth.Rate                                   52.22  52.16
+Total.Asset.Return.Growth.Rate.Ratio                    47.30  28.28
+Cash.Reinvestment..                                     23.69  -6.25
+Current.Ratio                                           32.74  21.19
+Quick.Ratio                                             32.41  28.49
+Interest.Expense.Ratio                                  61.40 -24.79
+Total.debt.Total.net.worth                              49.11  45.24
+Debt.ratio..                                             6.45   0.32
+Net.worth.Assets                                         6.45  -0.32
+Long.term.fund.suitability.ratio..A.                    35.16  25.49
+Borrowing.dependency                                    51.49  17.51
+Contingent.liabilities.Net.worth                        39.61  23.20
+Operating.profit.Paid.in.capital                        33.67  11.58
+Net.profit.before.tax.Paid.in.capital                   28.11   8.01
+Inventory.and.accounts.receivable.Net.value             58.42  12.62
+Total.Asset.Turnover                                     9.89   2.40
+Accounts.Receivable.Turnover                            33.04  27.48
+Average.Collection.Days                                 28.99  25.64
+Inventory.Turnover.Rate..times.                          3.08   1.11
+Fixed.Assets.Turnover.Frequency                          4.07   2.35
+Net.Worth.Turnover.Rate..times.                         23.83   8.20
+Revenue.per.person                                      17.71   5.97
+Operating.profit.per.person                             30.37   5.71
+Allocation.rate.per.person                              32.57  28.70
+Working.Capital.to.Total.Assets                          6.60   0.29
+Quick.Assets.Total.Assets                                4.86   0.36
+Current.Assets.Total.Assets                              4.43   0.08
+Cash.Total.Assets                                        6.66   2.24
+Quick.Assets.Current.Liability                          41.82  27.96
+Cash.Current.Liability                                  18.69  16.03
+Current.Liability.to.Assets                              6.32   0.80
+Operating.Funds.to.Liability                            27.37   5.12
+Inventory.Working.Capital                               64.19 -14.46
+Inventory.Current.Liability                             17.71  13.42
+Current.Liabilities.Liability                            4.80  -0.81
+Working.Capital.Equity                                  58.04   4.86
+Current.Liabilities.Equity                              53.04   1.99
+Long.term.Liability.to.Current.Assets                   18.36  14.08
+Retained.Earnings.to.Total.Assets                       35.77 -15.69
+Total.income.Total.expense                              38.22  15.76
+Total.expense.Assets                                    32.41  13.14
+Current.Asset.Turnover.Rate                              3.51   2.06
+Quick.Asset.Turnover.Rate                                2.94   1.10
+Working.capitcal.Turnover.Rate                          51.30  49.51
+Cash.Turnover.Rate                                       3.42   0.96
+Cash.Flow.to.Sales                                      52.38  51.88
+Fixed.Assets.to.Assets                                  52.22  52.16
+Current.Liability.to.Liability                           4.80  -0.81
+Current.Liability.to.Equity                             53.04   1.99
+Equity.to.Long.term.Liability                           40.21  29.55
+Cash.Flow.to.Total.Assets                               20.04  -0.87
+Cash.Flow.to.Liability                                  27.91  -0.52
+CFO.to.Assets                                           16.59  -0.79
+Cash.Flow.to.Equity                                     55.78  24.33
+Current.Liability.to.Current.Assets                     27.74   8.58
+Liability.Assets.Flag                                   36.93  36.86
+Net.Income.to.Total.Assets                              22.87  -4.84
+Total.assets.to.GNP.price                               22.47  19.03
+No.credit.Interval                                      55.40  -8.52
+Gross.Profit.to.Sales                                   36.30 -13.97
+Net.Income.to.Stockholder.s.Equity                      54.35 -38.32
+Liability.to.Equity                                     51.41  16.68
+Degree.of.Financial.Leverage..DFL.                      48.67  42.41
+Interest.Coverage.Ratio..Interest.expense.to.EBIT.      64.91  -8.64
+Net.Income.Flag                                          0.00    NaN
+Equity.to.Liability                                     19.39   8.53
+                                                        kurtosis   se
+Bankrupt.*                                                 26.00 0.00
+ROA.C..before.interest.and.depreciation.before.interest     8.21 0.02
+ROA.A..before.interest.and...after.tax                      9.82 0.02
+ROA.B..before.interest.and.depreciation.after.tax           9.54 0.02
+Operating.Gross.Margin                                    450.20 0.02
+Realized.Sales.Gross.Margin                               450.82 0.02
+Operating.Profit.Rate                                    2715.57 0.02
+Pre.tax.net.Interest.Rate                                2680.47 0.02
+After.tax.net.Interest.Rate                              2675.62 0.02
+Non.industry.income.and.expenditure.revenue              2631.34 0.02
+Continuous.interest.rate..after.tax.                     2677.93 0.02
+Operating.Expense.Rate                                     -0.10 0.02
+Research.and.development.expense.rate                       0.45 0.02
+Cash.flow.rate                                            315.44 0.02
+Interest.bearing.debt.interest.rate                        48.38 0.02
+Tax.rate..A.                                                6.61 0.02
+Net.Value.Per.Share..B.                                    19.72 0.02
+Net.Value.Per.Share..A.                                    19.60 0.02
+Net.Value.Per.Share..C.                                    19.58 0.02
+Persistent.EPS.in.the.Last.Four.Seasons                   104.46 0.02
+Cash.Flow.Per.Share                                        43.61 0.02
+Revenue.Per.Share..Yuan.Â..                              2720.00 0.02
+Operating.Profit.Per.Share..Yuan.Â..                      309.43 0.02
+Per.Share.Net.profit.before.tax..Yuan.Â..                 136.12 0.02
+Realized.Sales.Gross.Profit.Growth.Rate                  2638.63 0.02
+Operating.Profit.Growth.Rate                              379.49 0.02
+After.tax.Net.Profit.Growth.Rate                          789.81 0.02
+Regular.Net.Profit.Growth.Rate                            770.63 0.02
+Continuous.Net.Profit.Growth.Rate                         312.67 0.02
+Total.Asset.Growth.Rate                                    -0.54 0.02
+Net.Value.Growth.Rate                                    2720.00 0.02
+Total.Asset.Return.Growth.Rate.Ratio                     1125.59 0.02
+Cash.Reinvestment..                                        92.93 0.02
+Current.Ratio                                             567.09 0.02
+Quick.Ratio                                               842.64 0.02
+Interest.Expense.Ratio                                   1349.98 0.02
+Total.debt.Total.net.worth                               2157.44 0.02
+Debt.ratio..                                               -0.19 0.02
+Net.worth.Assets                                           -0.19 0.02
+Long.term.fund.suitability.ratio..A.                      764.49 0.02
+Borrowing.dependency                                      630.77 0.02
+Contingent.liabilities.Net.worth                          836.71 0.02
+Operating.profit.Paid.in.capital                          314.03 0.02
+Net.profit.before.tax.Paid.in.capital                     160.79 0.02
+Inventory.and.accounts.receivable.Net.value               671.11 0.02
+Total.Asset.Turnover                                       10.42 0.02
+Accounts.Receivable.Turnover                              811.04 0.02
+Average.Collection.Days                                   679.21 0.02
+Inventory.Turnover.Rate..times.                            -0.40 0.02
+Fixed.Assets.Turnover.Frequency                             4.09 0.02
+Net.Worth.Turnover.Rate..times.                           132.27 0.02
+Revenue.per.person                                         57.54 0.02
+Operating.profit.per.person                               104.80 0.02
+Allocation.rate.per.person                                849.40 0.02
+Working.Capital.to.Total.Assets                             0.06 0.02
+Quick.Assets.Total.Assets                                  -0.54 0.02
+Current.Assets.Total.Assets                                -0.82 0.02
+Cash.Total.Assets                                           6.10 0.02
+Quick.Assets.Current.Liability                           1087.84 0.02
+Cash.Current.Liability                                    263.99 0.02
+Current.Liability.to.Assets                                 0.49 0.02
+Operating.Funds.to.Liability                               75.87 0.02
+Inventory.Working.Capital                                 958.09 0.02
+Inventory.Current.Liability                               191.98 0.02
+Current.Liabilities.Liability                              -0.07 0.02
+Working.Capital.Equity                                    557.56 0.02
+Current.Liabilities.Equity                                429.52 0.02
+Long.term.Liability.to.Current.Assets                     213.53 0.02
+Retained.Earnings.to.Total.Assets                         477.82 0.02
+Total.income.Total.expense                                472.31 0.02
+Total.expense.Assets                                      367.38 0.02
+Current.Asset.Turnover.Rate                                 2.58 0.02
+Quick.Asset.Turnover.Rate                                  -0.47 0.02
+Working.capitcal.Turnover.Rate                           2514.92 0.02
+Cash.Turnover.Rate                                         -0.35 0.02
+Cash.Flow.to.Sales                                       2699.40 0.02
+Fixed.Assets.to.Assets                                   2720.00 0.02
+Current.Liability.to.Liability                             -0.07 0.02
+Current.Liability.to.Equity                               429.52 0.02
+Equity.to.Long.term.Liability                             992.83 0.02
+Cash.Flow.to.Total.Assets                                  24.05 0.02
+Cash.Flow.to.Liability                                     65.19 0.02
+CFO.to.Assets                                               8.65 0.02
+Cash.Flow.to.Equity                                      1043.76 0.02
+Current.Liability.to.Current.Assets                       186.64 0.02
+Liability.Assets.Flag                                    1357.50 0.02
+Net.Income.to.Total.Assets                                 66.24 0.02
+Total.assets.to.GNP.price                                 371.40 0.02
+No.credit.Interval                                        655.65 0.02
+Gross.Profit.to.Sales                                     450.20 0.02
+Net.Income.to.Stockholder.s.Equity                       1762.12 0.02
+Liability.to.Equity                                       603.39 0.02
+Degree.of.Financial.Leverage..DFL.                       1911.81 0.02
+Interest.Coverage.Ratio..Interest.expense.to.EBIT.        910.12 0.02
+Net.Income.Flag                                              NaN 0.00
+Equity.to.Liability                                       119.08 0.02</code></pre>
+</div>
+<h2 id="fit-knn">Fit KNN</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+
+<span class='va'>BankRF</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span>
+  form <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>Bankrupt.</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>.</span>,
+  data <span class='op'>=</span> <span class='va'>BankTrain</span>,
+  <span class='co'>#here we add classProbs because we want probs</span>
+  trControl <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/trainControl.html'>trainControl</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"cv"</span>, number <span class='op'>=</span> <span class='fl'>10</span>,
+                           classProbs <span class='op'>=</span>  <span class='cn'>TRUE</span><span class='op'>)</span>,
+  method <span class='op'>=</span> <span class='st'>"rf"</span>,
+  tuneLength <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span><span class='co'>#why 3?</span>
+
+<span class='va'>BankRF</span>
+</code></pre>
+</div>
+<pre><code>Random Forest 
+
+4092 samples
+  95 predictor
+   2 classes: &#39;No&#39;, &#39;Yes&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 3683, 3683, 3682, 3683, 3683, 3682, ... 
+Resampling results across tuning parameters:
+
+  mtry  Accuracy   Kappa    
+   2    0.9701867  0.1850996
+  48    0.9696983  0.2601388
+  95    0.9687220  0.2417229
+
+Accuracy was used to select the optimal model using the
+ largest value.
+The final value used for the model was mtry = 2.</code></pre>
+</div>
+<h2 id="use-the-test-set-to-make-a-prediction">Use the test set to make a prediction</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Bank_pred</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>BankRF</span>,<span class='va'>testTransformed</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>BankRF</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$method
+[1] &quot;rf&quot;
+
+$modelInfo
+$modelInfo$label
+[1] &quot;Random Forest&quot;
+
+$modelInfo$library
+[1] &quot;randomForest&quot;
+
+$modelInfo$loop
+NULL
+
+$modelInfo$type
+[1] &quot;Classification&quot; &quot;Regression&quot;    
+
+$modelInfo$parameters
+  parameter   class                         label
+1      mtry numeric #Randomly Selected Predictors
+
+$modelInfo$grid
+function(x, y, len = NULL, search = &quot;grid&quot;) {
+                    if(search == &quot;grid&quot;) {
+                      out &lt;- data.frame(mtry = caret::var_seq(p = ncol(x),
+                                                              classification = is.factor(y),
+                                                              len = len))
+                    } else {
+                      out &lt;- data.frame(mtry = unique(sample(1:ncol(x), size = len, replace = TRUE)))
+                    }
+                  }
+
+$modelInfo$fit
+function(x, y, wts, param, lev, last, classProbs, ...)
+                    randomForest::randomForest(x, y, mtry = min(param$mtry, ncol(x)), ...)
+&lt;bytecode: 0x000000002ea58248&gt;
+
+$modelInfo$predict
+function(modelFit, newdata, submodels = NULL)
+                    if(!is.null(newdata)) predict(modelFit, newdata) else predict(modelFit)
+&lt;bytecode: 0x00000000302eb938&gt;
+
+$modelInfo$prob
+function(modelFit, newdata, submodels = NULL)
+                    if(!is.null(newdata)) predict(modelFit, newdata, type = &quot;prob&quot;) else predict(modelFit, type = &quot;prob&quot;)
+&lt;bytecode: 0x000000002fe5a570&gt;
+
+$modelInfo$predictors
+function(x, ...) {
+                    ## After doing some testing, it looks like randomForest
+                    ## will only try to split on plain main effects (instead
+                    ## of interactions or terms like I(x^2).
+                    varIndex &lt;- as.numeric(names(table(x$forest$bestvar)))
+                    varIndex &lt;- varIndex[varIndex &gt; 0]
+                    varsUsed &lt;- names(x$forest$ncat)[varIndex]
+                    varsUsed
+                  }
+
+$modelInfo$varImp
+function(object, ...){
+                    varImp &lt;- randomForest::importance(object, ...)
+                    if(object$type == &quot;regression&quot;) {
+                      if(&quot;%IncMSE&quot; %in% colnames(varImp)) {
+                        varImp &lt;- as.data.frame(varImp[,&quot;%IncMSE&quot;, drop = FALSE])
+                        colnames(varImp) &lt;- &quot;Overall&quot;
+                      } else {
+                        varImp &lt;- as.data.frame(varImp[,1, drop = FALSE])
+                        colnames(varImp) &lt;- &quot;Overall&quot;
+                      }
+                    }
+                    else {
+                      retainNames &lt;- levels(object$y)
+                      if(all(retainNames %in% colnames(varImp))) {
+                        varImp &lt;- varImp[, retainNames, drop = FALSE]
+                      } else {
+                        varImp &lt;- as.data.frame(varImp[,1, drop = FALSE])
+                        colnames(varImp) &lt;- &quot;Overall&quot;
+                      }
+                    }
+
+                    out &lt;- as.data.frame(varImp, stringsAsFactors = TRUE)
+                    if(dim(out)[2] == 2) {
+                      tmp &lt;- apply(out, 1, mean)
+                      out[,1] &lt;- out[,2] &lt;- tmp
+                    }
+                    out
+                  }
+
+$modelInfo$levels
+function(x) x$classes
+
+$modelInfo$tags
+[1] &quot;Random Forest&quot;              &quot;Ensemble Model&quot;            
+[3] &quot;Bagging&quot;                    &quot;Implicit Feature Selection&quot;
+
+$modelInfo$sort
+function(x) x[order(x[,1]),]
+
+$modelInfo$oob
+function(x) {
+                    out &lt;- switch(x$type,
+                                  regression =   c(sqrt(max(x$mse[length(x$mse)], 0)), x$rsq[length(x$rsq)]),
+                                  classification =  c(1 - x$err.rate[x$ntree, &quot;OOB&quot;],
+                                                      e1071::classAgreement(x$confusion[,-dim(x$confusion)[2]])[[&quot;kappa&quot;]]))
+                    names(out) &lt;- if(x$type == &quot;regression&quot;) c(&quot;RMSE&quot;, &quot;Rsquared&quot;) else c(&quot;Accuracy&quot;, &quot;Kappa&quot;)
+                    out
+                  }
+
+
+$modelType
+[1] &quot;Classification&quot;
+
+$results
+  mtry  Accuracy     Kappa  AccuracySD    KappaSD
+1    2 0.9701867 0.1850996 0.002231980 0.09865734
+2   48 0.9696983 0.2601388 0.005169602 0.14963773
+3   95 0.9687220 0.2417229 0.006272886 0.15321894
+
+$pred
+NULL
+
+$bestTune
+  mtry
+1    2</code></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

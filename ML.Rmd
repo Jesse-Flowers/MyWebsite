@@ -25,34 +25,34 @@ Jesseflow99@gmail.com
 ## Split The Data 60/40 
 ```{r,echo=TRUE}
 library(caret)
-trainIndex <- createDataPartition(iris$Species, p = .6, list = FALSE, times = 1)
+trainIndexKNN <- createDataPartition(iris$Species, p = .6, list = FALSE, times = 1)
  
 ```
 
 ## Grab The Data
 ```{r,echo=TRUE}
 #grab the data
-irisTrain <- iris[ trainIndex,]
-irisTest  <- iris[-trainIndex,]
+irisTrainKNN <- iris[ trainIndex,]
+irisTestKNN  <- iris[-trainIndex,]
 ```
 
 
 ## Perform PreProcessing on Data
 ```{r,echo=TRUE}
-preProcValues <- preProcess(irisTrain, method = c("center", "scale"))
+preProcValuesKNN <- preProcess(irisTrain, method = c("center", "scale"))
 
-trainTransformed <- predict(preProcValues, irisTrain)
+trainTransformedKNN <- predict(preProcValuesKNN, irisTrain)
 
-preProcValues <- preProcess(irisTest, method = c("center", "scale"))
+preProcValuesKNN <- preProcess(irisTest, method = c("center", "scale"))
 
-testTransformed <- predict(preProcValues, irisTest)
+testTransformedKNN <- predict(preProcValuesKNN, irisTest)
 psych::describe(testTransformed)
 ```
 
 ## Fit KNN 
 ```{r,echo=TRUE}
 knn_fit<-train(Species~.,
-               data=trainTransformed,
+               data=trainTransformedKNN,
                method="knn",
                tuneGrid=data.frame(k=5))
 
@@ -65,7 +65,7 @@ knn_fit
 ## Use the test set to make a prediction
 ```{r,echo=TRUE}
 
-knn_pred<-predict(knn_fit,testTransformed)
+knn_pred<-predict(knn_fit,testTransformedKNN)
 head(knn_pred)
 
 ```
@@ -73,7 +73,7 @@ head(knn_pred)
 ## Run ConfusionMatrix 
 
 ```{r,echo=TRUE}
-confusionMatrix(knn_pred,testTransformed$Species)
+confusionMatrix(knn_pred,testTransformedKNN$Species)
 
 ```
 
