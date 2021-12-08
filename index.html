@@ -87,26 +87,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>mfeo: K Nearest Neighbors (KNN)</title>
+  <title>mfeo: Jesse A. Flowers</title>
 
+  <meta property="description" itemprop="description" content="Welcome to the website. I hope you enjoy it!"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="mfeo: K Nearest Neighbors (KNN)"/>
+  <meta property="og:title" content="mfeo: Jesse A. Flowers"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Welcome to the website. I hope you enjoy it!"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="mfeo"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="mfeo: K Nearest Neighbors (KNN)"/>
+  <meta property="twitter:title" content="mfeo: Jesse A. Flowers"/>
+  <meta property="twitter:description" content="Welcome to the website. I hope you enjoy it!"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["K Nearest Neighbors (KNN)"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["Jesse A. Flowers"]},{"type":"character","attributes":{},"value":["Welcome to the website. I hope you enjoy it!\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2370,7 +2373,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"K Nearest Neighbors (KNN)","authors":[]}
+{"title":"Jesse A. Flowers","description":"Welcome to the website. I hope you enjoy it!","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2406,142 +2409,15 @@ Projects
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>K Nearest Neighbors (KNN)</h1>
+<h1>Jesse A. Flowers</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Welcome to the website. I hope you enjoy it!</p></p>
 </div>
 
 
 <div class="d-article">
-<center>
-<h1 id="what-is-knn">What is KNN?</h1>
-<h3 id="k-nearest-neighbors-or-knn-is-a-machine-learning-algorithm.-knn-works-by-trying-to-predict-uisng-test-data-by-calculating-distance-between-the-test-data-and-training-points-observed.-this-can-be-adjusted-using-knns-tuning-parameter-k-in-order-to-increase-or-decrease-proximity.">K-Nearest Neighbors or (KNN) is a machine learning algorithm. KNN works by trying to predict uisng test data by calculating distance between the test data and training points observed. This can be adjusted using KNN’s tuning parameter (k) in order to increase or decrease proximity.</h3>
-</center>
-<hr />
-<h1 id="knn-using-iris-data-set">(KNN) Using Iris Data Set</h1>
-<h2 id="split-the-data-6040">Split The Data 60/40</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/topepo/caret/'>caret</a></span><span class='op'>)</span>
-<span class='va'>trainIndexKNN</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/createDataPartition.html'>createDataPartition</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Species</span>, p <span class='op'>=</span> <span class='fl'>.6</span>, list <span class='op'>=</span> <span class='cn'>FALSE</span>, times <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h2 id="grab-the-data">Grab The Data</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#grab the data</span>
-<span class='va'>irisTrainKNN</span> <span class='op'>&lt;-</span> <span class='va'>iris</span><span class='op'>[</span> <span class='va'>trainIndexKNN</span>,<span class='op'>]</span>
-<span class='va'>irisTestKNN</span>  <span class='op'>&lt;-</span> <span class='va'>iris</span><span class='op'>[</span><span class='op'>-</span><span class='va'>trainIndexKNN</span>,<span class='op'>]</span>
-</code></pre>
-</div>
-</div>
-<h2 id="perform-preprocessing-on-data">Perform PreProcessing on Data</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>preProcValuesKNN</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/preProcess.html'>preProcess</a></span><span class='op'>(</span><span class='va'>irisTrainKNN</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"center"</span>, <span class='st'>"scale"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='va'>trainTransformedKNN</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>preProcValuesKNN</span>, <span class='va'>irisTrainKNN</span><span class='op'>)</span>
-
-<span class='va'>preProcValuesKNN</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/preProcess.html'>preProcess</a></span><span class='op'>(</span><span class='va'>irisTestKNN</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"center"</span>, <span class='st'>"scale"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='va'>testTransformedKNN</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>preProcValuesKNN</span>, <span class='va'>irisTestKNN</span><span class='op'>)</span>
-<span class='fu'>psych</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/describe.html'>describe</a></span><span class='op'>(</span><span class='va'>testTransformedKNN</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>             vars  n mean   sd median trimmed  mad   min  max range
-Sepal.Length    1 60    0 1.00   0.03   -0.03 1.31 -1.73 2.02  3.75
-Sepal.Width     2 60    0 1.00  -0.18    0.00 0.67 -2.43 2.98  5.41
-Petal.Length    3 60    0 1.00   0.36    0.00 0.98 -1.49 1.60  3.09
-Petal.Width     4 60    0 1.00   0.18   -0.02 1.44 -1.44 1.67  3.11
-Species*        5 60    2 0.82   2.00    2.00 1.48  1.00 3.00  2.00
-              skew kurtosis   se
-Sepal.Length  0.17    -0.94 0.13
-Sepal.Width   0.09     0.65 0.13
-Petal.Length -0.27    -1.48 0.13
-Petal.Width  -0.08    -1.40 0.13
-Species*      0.00    -1.55 0.11</code></pre>
-</div>
-<h2 id="fit-knn">Fit KNN</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>knn_fit</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span><span class='va'>Species</span><span class='op'>~</span><span class='va'>.</span>,
-               data<span class='op'>=</span><span class='va'>trainTransformedKNN</span>,
-               method<span class='op'>=</span><span class='st'>"knn"</span>,
-               tuneGrid<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>k<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='va'>knn_fit</span>
-</code></pre>
-</div>
-<pre><code>k-Nearest Neighbors 
-
-90 samples
- 4 predictor
- 3 classes: &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39; 
-
-No pre-processing
-Resampling: Bootstrapped (25 reps) 
-Summary of sample sizes: 90, 90, 90, 90, 90, 90, ... 
-Resampling results:
-
-  Accuracy   Kappa    
-  0.9281673  0.8910733
-
-Tuning parameter &#39;k&#39; was held constant at a value of 5</code></pre>
-</div>
-<h2 id="use-the-test-set-to-make-a-prediction">Use the test set to make a prediction</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>knn_pred</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>knn_fit</span>,<span class='va'>testTransformedKNN</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>knn_pred</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>[1] setosa setosa setosa setosa setosa setosa
-Levels: setosa versicolor virginica</code></pre>
-</div>
-<h2 id="run-confusionmatrix">Run ConfusionMatrix</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/caret/man/confusionMatrix.html'>confusionMatrix</a></span><span class='op'>(</span><span class='va'>knn_pred</span>,<span class='va'>testTransformedKNN</span><span class='op'>$</span><span class='va'>Species</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>Confusion Matrix and Statistics
-
-            Reference
-Prediction   setosa versicolor virginica
-  setosa         20          0         0
-  versicolor      0         20         1
-  virginica       0          0        19
-
-Overall Statistics
-                                          
-               Accuracy : 0.9833          
-                 95% CI : (0.9106, 0.9996)
-    No Information Rate : 0.3333          
-    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
-                                          
-                  Kappa : 0.975           
-                                          
- Mcnemar&#39;s Test P-Value : NA              
-
-Statistics by Class:
-
-                     Class: setosa Class: versicolor Class: virginica
-Sensitivity                 1.0000            1.0000           0.9500
-Specificity                 1.0000            0.9750           1.0000
-Pos Pred Value              1.0000            0.9524           1.0000
-Neg Pred Value              1.0000            1.0000           0.9756
-Prevalence                  0.3333            0.3333           0.3333
-Detection Rate              0.3333            0.3333           0.3167
-Detection Prevalence        0.3333            0.3500           0.3167
-Balanced Accuracy           1.0000            0.9875           0.9750</code></pre>
-</div>
-<center>
-<h1 id="how-can-machine-learning-benefit-accountants">How can Machine Learning benefit Accountants?</h1>
-<h3 id="machine-learning-in-general-can-provide-many-benefits-for-accountants.-while-machine-learning-algorithims-can-not-replace-all-human-interation-its-much-more-effective-at-completing-repetative-tasks.-this-allows-for-a-much-more-accurate-and-timely-accounting-review.">Machine learning in general can provide many benefits for accountants. WHile machine learning algorithims can not replace all human interation, its much more effective at completing repetative tasks. This allows for a much more accurate and timely accounting review.</h3>
-</center>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

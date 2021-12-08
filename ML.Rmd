@@ -9,13 +9,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <center>
 
-# Jesse A. Flowers
+# What is KNN?
 
-Adkerson School of Accountancy
-
-Mississippi State University
-
-Jesseflow99@gmail.com
+### K-Nearest Neighbors or (KNN) is a machine learning algorithm. KNN works by trying to predict uisng test data by calculating distance between the test data and training points observed. This can be adjusted using KNN's tuning parameter (k) in order to increase or decrease proximity. 
 
 </center>
 
@@ -32,21 +28,21 @@ trainIndexKNN <- createDataPartition(iris$Species, p = .6, list = FALSE, times =
 ## Grab The Data
 ```{r,echo=TRUE}
 #grab the data
-irisTrainKNN <- iris[ trainIndex,]
-irisTestKNN  <- iris[-trainIndex,]
+irisTrainKNN <- iris[ trainIndexKNN,]
+irisTestKNN  <- iris[-trainIndexKNN,]
 ```
 
 
 ## Perform PreProcessing on Data
 ```{r,echo=TRUE}
-preProcValuesKNN <- preProcess(irisTrain, method = c("center", "scale"))
+preProcValuesKNN <- preProcess(irisTrainKNN, method = c("center", "scale"))
 
-trainTransformedKNN <- predict(preProcValuesKNN, irisTrain)
+trainTransformedKNN <- predict(preProcValuesKNN, irisTrainKNN)
 
-preProcValuesKNN <- preProcess(irisTest, method = c("center", "scale"))
+preProcValuesKNN <- preProcess(irisTestKNN, method = c("center", "scale"))
 
-testTransformedKNN <- predict(preProcValuesKNN, irisTest)
-psych::describe(testTransformed)
+testTransformedKNN <- predict(preProcValuesKNN, irisTestKNN)
+psych::describe(testTransformedKNN)
 ```
 
 ## Fit KNN 
@@ -78,4 +74,10 @@ confusionMatrix(knn_pred,testTransformedKNN$Species)
 ```
 
 
+<center>
 
+# How can Machine Learning benefit Accountants?
+
+### Machine learning in general can provide many benefits for accountants. WHile machine learning algorithims can not replace all human interation, its much more effective at completing repetative tasks. This allows for a much more accurate and timely accounting review. 
+
+</center>

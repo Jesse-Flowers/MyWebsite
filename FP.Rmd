@@ -9,19 +9,17 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
+# [^4]  Company Bankruptcy Prediction Dataset
+
+[^4]: <https://www.kaggle.com/fedesoriano/company-bankruptcy-prediction>
+
 <center>
+# What is Random Forest?
 
-# Jesse A. Flowers
-
-Adkerson School of Accountancy
-
-Mississippi State University
-
-Jesseflow99@gmail.com
+#### Random Forest is a algorithm that comes to a conclusion using many different decisions trees. The most common outcome for each indiviual decision tree helps to create the final output. While this algorithm may seem complex the core of this algorithm decision trees, have been used my most wether knowingly or not.
 
 </center>
-
-------------------------------------------------------------------------
 
 ```{r}
 library(tidyverse)
@@ -48,7 +46,7 @@ BankTest  <- bankdata[-trainIndex,]
 
 
 ## Perform PreProcessing on Data
-```{r,echo=TRUE,results='hide'}
+```{r,echo=TRUE,results='hide',message=FALSE}
 preProcValues <- preProcess(BankTrain, method = c("center", "scale"))
 
 trainTransformed <- predict(preProcValues, BankTrain)
@@ -86,7 +84,12 @@ head(BankRF)
 ```
 
 
+<center>
+# How can this be used?
 
+### Random Forest does a great job predicting wether a comapny will go bankrupt or not in this scenario by using provided measurements. This prediction can help many different groups in regards to the longevity of future investments. Being able to make a accurate prediction of wether a organization is likely to file for bankruptcy could assist investors and help make more informed investments.
+
+</center>
 
 
 
