@@ -87,22 +87,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>mfeo: Random Forest</title>
+  <title>Jesse Flowers Website: Random Forest</title>
 
   <meta property="description" itemprop="description" content="Predicting Bankrupcty using Random Forest&quot;"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="mfeo: Random Forest"/>
+  <meta property="og:title" content="Jesse Flowers Website: Random Forest"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="Predicting Bankrupcty using Random Forest&quot;"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="mfeo"/>
+  <meta property="og:site_name" content="Jesse Flowers Website"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="mfeo: Random Forest"/>
+  <meta property="twitter:title" content="Jesse Flowers Website: Random Forest"/>
   <meta property="twitter:description" content="Predicting Bankrupcty using Random Forest&quot;"/>
 
   <!--/radix_placeholder_meta_tags-->
@@ -2381,13 +2381,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">mfeo</a>
+<a href="index.html" class="title">Jesse Flowers Website</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="Resume.html">Resume</a>
-<a href="jesse.html">Jesse</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 Projects
@@ -2420,7 +2419,7 @@ Projects
 <h1 id="company-bankruptcy-prediction-dataset"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Company Bankruptcy Prediction Dataset</h1>
 <center>
 <h1 id="what-is-random-forest">What is Random Forest?</h1>
-<h2 id="random-forest-is-a-algorithm-that-comes-to-a-conclusion-using-many-different-decisions-trees.-the-most-common-outcome-for-each-indiviual-decision-tree-helps-to-create-the-final-output.-while-this-algorithm-may-seem-complex-the-core-of-this-algorithm-decision-trees-have-been-used-my-most-wether-knowingly-or-not.">Random Forest is a algorithm that comes to a conclusion using many different decisions trees. The most common outcome for each indiviual decision tree helps to create the final output. While this algorithm may seem complex the core of this algorithm decision trees, have been used my most wether knowingly or not.</h2>
+<h4 id="random-forest-is-a-algorithm-that-comes-to-a-conclusion-using-many-different-decisions-trees.-the-most-common-outcome-for-each-indiviual-decision-tree-helps-to-create-the-final-output.-while-this-algorithm-may-seem-complex-the-core-of-this-algorithm-decision-trees-have-been-used-my-most-wether-knowingly-or-not.">Random Forest is a algorithm that comes to a conclusion using many different decisions trees. The most common outcome for each indiviual decision tree helps to create the final output. While this algorithm may seem complex the core of this algorithm decision trees, have been used my most wether knowingly or not.</h4>
 </center>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2484,9 +2483,9 @@ Summary of sample sizes: 3683, 3683, 3682, 3683, 3683, 3682, ...
 Resampling results across tuning parameters:
 
   mtry  Accuracy   Kappa    
-   2    0.9704306  0.1777315
-  48    0.9714097  0.3229255
-  95    0.9718975  0.3442062
+   2    0.9694549  0.1975111
+  48    0.9696988  0.3134210
+  95    0.9699428  0.3412097
 
 Accuracy was used to select the optimal model using the
  largest value.
@@ -2533,17 +2532,17 @@ function(x, y, len = NULL, search = &quot;grid&quot;) {
 $modelInfo$fit
 function(x, y, wts, param, lev, last, classProbs, ...)
                     randomForest::randomForest(x, y, mtry = min(param$mtry, ncol(x)), ...)
-&lt;bytecode: 0x0000000046e77978&gt;
+&lt;bytecode: 0x00000000432ab7e8&gt;
 
 $modelInfo$predict
 function(modelFit, newdata, submodels = NULL)
                     if(!is.null(newdata)) predict(modelFit, newdata) else predict(modelFit)
-&lt;bytecode: 0x00000000480dc320&gt;
+&lt;bytecode: 0x0000000044b4a698&gt;
 
 $modelInfo$prob
 function(modelFit, newdata, submodels = NULL)
                     if(!is.null(newdata)) predict(modelFit, newdata, type = &quot;prob&quot;) else predict(modelFit, type = &quot;prob&quot;)
-&lt;bytecode: 0x00000000482e0268&gt;
+&lt;bytecode: 0x0000000044281978&gt;
 
 $modelInfo$predictors
 function(x, ...) {
@@ -2612,9 +2611,9 @@ $modelType
 
 $results
   mtry  Accuracy     Kappa  AccuracySD   KappaSD
-1    2 0.9704306 0.1777315 0.003345483 0.1219371
-2   48 0.9714097 0.3229255 0.005396402 0.1364479
-3   95 0.9718975 0.3442062 0.004778483 0.1136868
+1    2 0.9694549 0.1975111 0.003841445 0.1890074
+2   48 0.9696988 0.3134210 0.005035434 0.1518298
+3   95 0.9699428 0.3412097 0.004149423 0.1142619
 
 $pred
 NULL

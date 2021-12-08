@@ -1,18 +1,17 @@
 ---
-title: "Jesse A. Flowers"
-description: |
-  Welcome to the website. I hope you enjoy it!
+title: "Jesse Flowers"
+image: "jesse.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/jesse-flowers-3a5478197/"
+  - label: GitHub
+    url: "https://github.com/Jesse-Flowers"
+  - label: Email
+    url: "mailto:jesseflow99@gmail.com"  
 site: distill::distill_website
+output:
+  postcards::jolla
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-
-# Learn more about creating websites with Distill at:
-# https://rstudio.github.io/distill/website.html
-
-# Learn more about publishing to GitHub Pages at:
-# https://rstudio.github.io/distill/publish_website.html#github-pages
-
-```
-
+I am a student at Mississippi State University, where I am currently working
+towards my Masters of Taxation with a minor in Data Analytics. 

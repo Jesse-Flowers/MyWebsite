@@ -1,7 +1,7 @@
 name: "."
-title: "mfeo"
+title: "Jesse Flowers Website"
 description: |
-  mfeo
+
 output_dir: "docs"
 navbar:
   right:
@@ -9,8 +9,6 @@ navbar:
       href: index.html
     - text: "Resume"
       href: Resume.html
-    - text: "Jesse"              # add
-      href: jesse.html           # add
     - text: "Projects"
       menu:
         - text: "RSquared"
